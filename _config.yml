@@ -14,7 +14,6 @@ header:
     - name: Home
       slug: /
     - name: Publication
-    - name: Misc
 
 footer:
   show_powered_by: true
