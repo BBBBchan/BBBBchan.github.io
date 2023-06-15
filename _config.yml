@@ -6,7 +6,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Personal page of Boyuan Sun.
 baseurl: "" # the subpath of the site
 url: "https://bbbbchan.github.io" # the base hostname & protocol for the site
-og_image: /assets/img/x.jpeg
+og_image: /assets/img/boyuansun.jpeg
 google_analytics: "UA-121636368-3"
 
 header:
