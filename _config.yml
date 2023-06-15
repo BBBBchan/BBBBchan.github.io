@@ -1,11 +1,11 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
-title: Zhen Li
+title: Boyuan Sun
 description: >- # this means to ignore newlines until "baseurl:"
-  Personal page of Zhen Li.
+  Personal page of Boyuan Sun.
 baseurl: "" # the subpath of the site
-url: "https://paper99.github.io" # the base hostname & protocol for the site
+url: "https://bbbbchan.github.io" # the base hostname & protocol for the site
 og_image: /assets/img/zhenli.jpeg
 google_analytics: "UA-121636368-3"
 
@@ -27,9 +27,9 @@ footer:
       link: "#"
   follow:
     - name: Google scholar
-      link: https://scholar.google.com/citations?user=utI5YFEAAAAJ&hl=en
+      link: https://scholar.google.com/citations?user=GvTWUAEAAAAJ&hl=en&oi=ao
     - name: GitHub
-      link: http://github.com/Paper99
+      link: https://github.com/BBBBChan
 
 # Build settings
 markdown: kramdown
