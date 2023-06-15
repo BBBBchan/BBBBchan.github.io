@@ -31,8 +31,5 @@ $on-laptop: 800px;
   }
 }
 
-@import "vendor/font-awesome/fontawesome";
-@import "vendor/font-awesome/solid";
-@import "vendor/font-awesome/brands";
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "base", "layout", "site", "publication", "blog", "post", "404";
