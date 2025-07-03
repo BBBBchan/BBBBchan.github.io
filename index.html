@@ -13,7 +13,7 @@ items:
   code: https://github.com/HVision-NKU/DepthAnythingAC
   paper: https://arxiv.org/abs/2507.01634
   project: https://ghost233lism.github.io/depthanything-AC-page/
-  Demo: https://huggingface.co/spaces/ghost233lism/DepthAnything-AC
+  demo: https://huggingface.co/spaces/ghost233lism/DepthAnything-AC
   bibtex: 
 - title: LLaVA-Scissor&#58; oken Compression with Semantic Connected Components for Video LLMs
   image:
@@ -133,6 +133,12 @@ items:
               [<a href="{{ item.code }}">Code</a>]
             {% else %}
               [Code]
+            {% endif %}
+            {% if item.project and item.project != "" and item.project != nil %}
+              [<a href="{{ item.project }}">item.project</a>]
+            {% endif %}
+            {% if item.demo and item.demo != "" and item.demo != nil %}
+              [<a href="{{ item.demo }}">item.demo</a>]
             {% endif %}
           </paper-info>
         </td>
