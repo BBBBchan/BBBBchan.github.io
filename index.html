@@ -14,6 +14,7 @@ items:
   paper: https://arxiv.org/abs/2507.01634
   project: https://ghost233lism.github.io/depthanything-AC-page/
   demo: https://huggingface.co/spaces/ghost233lism/DepthAnything-AC
+  hf: https://huggingface.co/ghost233lism/DepthAnything-AC
   bibtex: 
 - title: LLaVA-Scissor&#58; oken Compression with Semantic Connected Components for Video LLMs
   image:
@@ -23,6 +24,7 @@ items:
   pubname: Arxiv preprint 2025
   code: https://github.com/HumanMLLM/LLaVA-Scissor
   paper: https://arxiv.org/abs/2506.21862
+  hf: https://huggingface.co/BBBBCHAN/LLaVA-Scissor-baseline-7B
   bibtex: 
 - title: HumanOmniV2&#58; From Understanding to Omni-Modal Reasoning with Context
   image:
@@ -32,6 +34,7 @@ items:
   pubname: Technical Report
   code: https://github.com/HumanMLLM/HumanOmniV2
   paper: https://arxiv.org/abs/2506.21277
+  hf: https://huggingface.co/PhilipC/HumanOmniV2
   bibtex: 
 - title: HumanOmni&#58; A Large Vision-Speech Language Model for Human-Centric Video Understanding
   image:
@@ -148,6 +151,9 @@ items:
             {% endif %}
             {% if item.demo and item.demo != "" and item.demo != nil %}
               [<a href="{{ item.demo }}">Demo</a>]
+            {% endif %}
+            {% if item.hf and item.hf != "" and item.hf != nil %}
+              [<a href="{{ item.hf }}">HuggingFace</a>]
             {% endif %}
           </paper-info>
         </td>
