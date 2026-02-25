@@ -157,8 +157,7 @@ items:
     background: #fff;
   }
 
-  /* ========== 页面容器（统一宽度） ========== */
-/* 🔧 在 index.html 的 <style> 中替换 .container 定义 */
+/* ========== 页面容器 ========== */
 .container {
   width: 100%;
   max-width: 1400px;
@@ -167,22 +166,10 @@ items:
   box-sizing: border-box;
 }
 
-/* 响应式内边距 */
-@media (max-width: 992px) {
-  .container {
-    padding: 0 1.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-}
-@media (max-width: 480px) {
-  .container {
-    padding: 0 0.8rem;
-  }
-}
+@media (max-width: 992px) { .container { padding: 0 1.5rem; } }
+@media (max-width: 768px) { .container { padding: 0 1rem; } }
+@media (max-width: 480px) { .container { padding: 0 0.8rem; } }
+
 
   /* ========== 个人简介区域（🔧 文字与 bar 宽度对齐） ========== */
   .profile-section {
