@@ -25,7 +25,7 @@
           </a>
         {% endfor %}
         
-        <!-- 🔧 新增 Intern 按钮（链接到实习经历部分） -->
+        <!-- 🔧 Intern 按钮（样式与其他按钮一致） -->
         <a class="page-link" href="#experience">
           Intern
         </a>
@@ -35,7 +35,7 @@
 </header>
 
 <style>
-  /* ========== Header 样式（与 index.html 保持一致） ========== */
+  /* ========== Header 样式（与 index.html 完全一致） ========== */
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --border-color: #e2e8f0;
@@ -54,7 +54,7 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
-  /* 🔧 与 index.html 相同的容器宽度 */
+  /* 🔧 与 index.html 完全相同的容器宽度设置 */
   .site-header .wrapper {
     width: min(85%, 1600px);
     min-width: min(85vw, 1200px);
@@ -102,6 +102,7 @@
     gap: 1.5rem;
   }
 
+  /* 🔧 所有导航按钮统一样式（包括 Intern） */
   .page-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -117,23 +118,7 @@
     background: var(--bg-soft);
   }
 
-  /* 🔧 Intern 按钮特殊样式（突出显示） */
-  .page-link[href="#experience"] {
-    background: var(--primary-gradient);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
-  }
-
-  .page-link[href="#experience"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
-    background: var(--primary-gradient);
-    color: white;
-  }
-
-  /* ========== 响应式设计 ========== */
+  /* ========== 响应式设计（与 index.html 断点一致） ========== */
   @media (max-width: 992px) {
     .site-header .wrapper {
       width: 92%;
@@ -190,11 +175,6 @@
 
     .page-link:last-child {
       border-bottom: none;
-    }
-
-    .page-link[href="#experience"] {
-      width: 100%;
-      text-align: center;
     }
   }
 
