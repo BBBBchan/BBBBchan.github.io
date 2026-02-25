@@ -166,7 +166,7 @@ items:
     padding: 0 2rem;
   }
 
-  /* ========== 个人简介区域（🔧 照片完整显示不裁剪） ========== */
+  /* ========== 个人简介区域（🔧 文字垂直居中 + 联系 bar 与文字对齐） ========== */
   .profile-section {
     margin: 0 auto 2.5rem auto;
     padding: 1.5rem 0;
@@ -174,7 +174,7 @@ items:
 
   .profile-wrapper {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
     background: white;
     border-radius: 14px;
@@ -184,11 +184,10 @@ items:
     width: 100%;
   }
 
-  /* 左侧照片区域 - 🔧 修改：固定宽度，高度自适应 */
+  /* 左侧照片区域 - 完整显示不裁剪 */
   .profile-image {
     flex-shrink: 0;
     width: 200px;
-    /* 移除固定高度，让高度自适应图片比例 */
     background: var(--bg-soft);
     border-radius: 12px;
     overflow: hidden;
@@ -201,18 +200,19 @@ items:
   .profile-image img {
     width: 100%;
     height: auto;
-    /* 🔧 关键修改：contain 确保完整显示不裁剪 */
     object-fit: contain;
     display: block;
   }
 
-  /* 右侧文字内容 */
+  /* 右侧文字内容 - 🔧 垂直居中 */
   .profile-content {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
     min-width: 0;
+    padding: 1rem 0;
   }
 
   .profile-content p {
@@ -233,6 +233,7 @@ items:
     text-decoration: underline;
   }
 
+  /* 🔧 联系 bar 与文字区域对齐 */
   .contact-info {
     padding: 0.8rem 1.2rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -242,7 +243,7 @@ items:
     gap: 0.6rem 1.2rem;
     align-items: center;
     width: fit-content;
-    margin-top: 0.5rem;
+    margin: 0;
   }
 
   .contact-info i {
@@ -596,6 +597,7 @@ items:
 
     .profile-content {
       align-items: center;
+      padding: 1rem 0 0 0;
     }
 
     .profile-content p {
@@ -740,12 +742,12 @@ items:
   <!-- 个人简介区域 -->
   <div class="profile-section">
     <div class="profile-wrapper">
-      <!-- 左侧照片 - 🔧 完整显示不裁剪 -->
+      <!-- 左侧照片 - 完整显示不裁剪 -->
       <div class="profile-image">
         <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
       </div>
       
-      <!-- 右侧文字内容 -->
+      <!-- 右侧文字内容 - 垂直居中 -->
       <div class="profile-content">
         <p>
           Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
@@ -753,6 +755,7 @@ items:
           His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
         </p>
 
+        <!-- 🔧 联系 bar 与文字对齐，邮箱使用普通@字符 -->
         <div class="contact-info">
           <div class="contact-item">
             <i class="fa-solid fa-location-dot"></i>
@@ -760,7 +763,7 @@ items:
           </div>
           <div class="contact-item">
             <i class="fa-solid fa-envelope"></i>
-            <span>sbysbysby123<i class="fa-solid fa-at"></i>gmail.com</span>
+            <span>sbysbysby123@gmail.com</span>
           </div>
           <div class="contact-item">
             <a href="https://github.com/BBBBChan" target="_blank" rel="noopener">
