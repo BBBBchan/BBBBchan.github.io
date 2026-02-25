@@ -166,7 +166,7 @@ items:
     padding: 0 2rem;
   }
 
-  /* ========== 个人简介区域（🔧 文字垂直居中 + 联系 bar 与文字对齐） ========== */
+  /* ========== 个人简介区域（🔧 文字与 bar 宽度对齐） ========== */
   .profile-section {
     margin: 0 auto 2.5rem auto;
     padding: 1.5rem 0;
@@ -204,7 +204,7 @@ items:
     display: block;
   }
 
-  /* 右侧文字内容 - 🔧 垂直居中 */
+  /* 右侧文字内容 - 垂直居中 */
   .profile-content {
     flex: 1;
     display: flex;
@@ -213,6 +213,11 @@ items:
     gap: 1rem;
     min-width: 0;
     padding: 1rem 0;
+  }
+
+  /* 🔧 文字区域容器 - 限制最大宽度，使 bar 与文字对齐 */
+  .profile-text-wrapper {
+    max-width: 100%;
   }
 
   .profile-content p {
@@ -233,16 +238,18 @@ items:
     text-decoration: underline;
   }
 
-  /* 🔧 联系 bar 与文字区域对齐 */
+  /* 🔧 联系 bar - 与文字宽度对齐 */
   .contact-info {
     padding: 0.8rem 1.2rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 8px;
-    display: flex;
+    display: inline-flex;
     flex-wrap: wrap;
     gap: 0.6rem 1.2rem;
     align-items: center;
-    width: fit-content;
+    /* 🔧 关键修改：移除 width: fit-content，让 bar 与文字区域对齐 */
+    width: auto;
+    max-width: 100%;
     margin: 0;
   }
 
@@ -749,13 +756,16 @@ items:
       
       <!-- 右侧文字内容 - 垂直居中 -->
       <div class="profile-content">
-        <p>
-          Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
-          supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
-          His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
-        </p>
+        <!-- 🔧 文字包装器，确保 bar 与文字宽度一致 -->
+        <div class="profile-text-wrapper">
+          <p>
+            Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
+            supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
+            His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
+          </p>
+        </div>
 
-        <!-- 🔧 联系 bar 与文字对齐，邮箱使用普通@字符 -->
+        <!-- 🔧 联系 bar 与文字宽度对齐 -->
         <div class="contact-info">
           <div class="contact-item">
             <i class="fa-solid fa-location-dot"></i>
