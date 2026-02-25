@@ -171,35 +171,26 @@ pre {
 }
 
 /**
- * Wrapper - 🔧 简洁可靠的宽度方案
+ * Wrapper - 🔧 与 header 完全一致的宽度方案
  */
 .wrapper {
   width: 100%;
-  max-width: 1400px;  /* 🔧 统一最大宽度 */
-  margin: 0 auto;     /* 🔧 水平居中 */
-  padding: 0 2rem;    /* 🔧 两侧内边距 */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
   box-sizing: border-box;
   position: relative;
   @extend %clearfix;
 }
 
-/* 响应式内边距（宽度由 max-width 控制，更稳定） */
 @include media-query(992px) {
-  .wrapper {
-    padding: 0 1.5rem;
-  }
+  .wrapper { padding: 0 1.5rem; }
 }
-
 @include media-query(768px) {
-  .wrapper {
-    padding: 0 1rem;
-  }
+  .wrapper { padding: 0 1rem; }
 }
-
 @include media-query(480px) {
-  .wrapper {
-    padding: 0 0.8rem;
-  }
+  .wrapper { padding: 0 0.8rem; }
 }
 
 /**
