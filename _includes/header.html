@@ -24,7 +24,217 @@
             {{ page.name }}
           </a>
         {% endfor %}
+        
+        <!-- 🔧 新增 Intern 按钮（链接到实习经历部分） -->
+        <a class="page-link" href="#experience">
+          Intern
+        </a>
       </div>
     </nav>
   </div>
 </header>
+
+<style>
+  /* ========== Header 样式（与 index.html 保持一致） ========== */
+  :root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --border-color: #e2e8f0;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --bg-soft: #f7fafc;
+  }
+
+  .site-header {
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  /* 🔧 与 index.html 相同的容器宽度 */
+  .site-header .wrapper {
+    width: min(85%, 1600px);
+    min-width: min(85vw, 1200px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+
+  .site-title {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .site-title img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .menu-icon::before {
+    content: "☰";
+    font-size: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .page-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .page-link:hover {
+    color: #667eea;
+    background: var(--bg-soft);
+  }
+
+  /* 🔧 Intern 按钮特殊样式（突出显示） */
+  .page-link[href="#experience"] {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  }
+
+  .page-link[href="#experience"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+    background: var(--primary-gradient);
+    color: white;
+  }
+
+  /* ========== 响应式设计 ========== */
+  @media (max-width: 992px) {
+    .site-header .wrapper {
+      width: 92%;
+      min-width: 92%;
+      padding: 0 1.5rem;
+    }
+
+    .site-title img {
+      height: 35px;
+    }
+
+    .menu {
+      gap: 1rem;
+    }
+
+    .page-link {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.6rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .site-header .wrapper {
+      width: 95%;
+      padding: 0 1rem;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+
+    .menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .menu.active {
+      display: flex;
+    }
+
+    .page-link {
+      width: 100%;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .page-link:last-child {
+      border-bottom: none;
+    }
+
+    .page-link[href="#experience"] {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header .wrapper {
+      width: 98%;
+      padding: 0 0.8rem;
+    }
+
+    .site-title img {
+      height: 32px;
+    }
+
+    .menu {
+      padding: 1rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // 🔧 移动端菜单切换
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.querySelector('.menu-icon');
+    const menu = document.querySelector('.menu');
+    
+    if (menuIcon && menu) {
+      menuIcon.addEventListener('click', function(e) {
+        e.preventDefault();
+        menu.classList.toggle('active');
+      });
+    }
+
+    // 🔧 点击菜单项后关闭移动端菜单
+    const pageLinks = document.querySelectorAll('.page-link');
+    pageLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          menu.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
