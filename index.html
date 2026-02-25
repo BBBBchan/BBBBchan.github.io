@@ -158,13 +158,31 @@ items:
   }
 
   /* ========== 页面容器（统一宽度） ========== */
+/* 🔧 在 index.html 的 <style> 中替换 .container 定义 */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* 响应式内边距 */
+@media (max-width: 992px) {
   .container {
-    width: min(85%, 1600px);
-    min-width: min(85vw, 1200px);
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.8rem;
+  }
+}
 
   /* ========== 个人简介区域（🔧 文字与 bar 宽度对齐） ========== */
   .profile-section {
