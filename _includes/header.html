@@ -26,26 +26,13 @@
 </header>
 
 <style>
-  /* ========== Header 样式（与 index.html 完全一致） ========== */
+  /* 🔧 仅保留 header 特有样式，宽度由 base.scss 的 .wrapper 控制 */
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --border-color: #e2e8f0;
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
     --bg-soft: #f7fafc;
-  }
-
-  /* 🔧 统一容器宽度 - 与 index.html 的 .container 完全一致 */
-  .site-header .wrapper {
-    width: min(85%, 1600px);
-    min-width: min(85vw, 1200px);
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
   }
 
   .site-header {
@@ -56,6 +43,12 @@
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .site-header .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .site-title img {
@@ -85,24 +78,10 @@
     background: var(--bg-soft);
   }
 
-  /* ========== 响应式（与 index.html 断点一致） ========== */
-  @media (max-width: 992px) {
-    .site-header .wrapper {
-      width: 92%;
-      min-width: 92%;
-      padding: 0 1.5rem;
-    }
-    .site-title img { height: 35px; }
-    .menu { gap: 1rem; }
-    .page-link { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
-  }
-
+  /* 移动端菜单 */
   @media (max-width: 768px) {
-    .site-header .wrapper {
-      width: 95%;
-      padding: 0 1rem;
-    }
-    .menu-icon { display: block; }
+    .menu-icon { display: block; cursor: pointer; padding: 0.5rem; }
+    .menu-icon::before { content: "☰"; font-size: 1.5rem; color: var(--text-primary); }
     .menu {
       display: none;
       position: absolute;
@@ -122,15 +101,6 @@
       border-bottom: 1px solid var(--border-color);
     }
     .page-link:last-child { border-bottom: none; }
-  }
-
-  @media (max-width: 480px) {
-    .site-header .wrapper {
-      width: 98%;
-      padding: 0 0.8rem;
-    }
-    .site-title img { height: 32px; }
-    .menu { padding: 1rem 1.5rem; }
   }
 </style>
 
