@@ -3,6 +3,7 @@
     <a class="site-title" href="{{ "" | prepend: site.baseurl | prepend: site.url }}/">
       <img src="{{ "/assets/img/title_new.png" | absolute_url }}" alt="{{ site.title }}" />
     </a>
+
     <nav class="site-nav">
       <a href="#" class="menu-icon"></a>
       <div class="menu">
@@ -18,7 +19,7 @@
           {% assign page_link = page_link | absolute_url %}
           <a class="page-link" href="{{ page_link }}">{{ page.name }}</a>
         {% endfor %}
-        <a class="page-link" href="#experience">InternShip</a>
+        <a class="page-link" href="#experience">Intern</a>
       </div>
     </nav>
   </div>
@@ -43,16 +44,36 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
+  /* 🔧 关键修复：统一宽度 + 移除 space-between */
   .site-header .wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* 🔧 移除 justify-content: space-between */
+  }
+
+  .site-title {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;  /* 🔧 防止 logo 被压缩 */
   }
 
   .site-title img {
     height: 40px;
     width: auto;
     object-fit: contain;
+  }
+
+  /* 🔧 关键修复：用 margin-left: auto 将 nav 推到最右侧 */
+  .site-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
   }
 
   .menu {
@@ -80,25 +101,35 @@
   @media (max-width: 768px) {
     .menu-icon { display: block; cursor: pointer; padding: 0.5rem; }
     .menu-icon::before { content: "☰"; font-size: 1.5rem; color: var(--text-primary); }
-    .menu {
-      display: none;
+    
+    .site-nav {
+      margin-left: 0;  /* 🔧 移动端取消 auto margin */
       position: absolute;
       top: 100%;
-      left: 0;
-      right: 0;
+      right: 2rem;  /* 🔧 与容器 padding 对齐 */
+    }
+    
+    .menu {
+      display: none;
       background: white;
       flex-direction: column;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .menu.active { display: flex; }
     .page-link {
       width: 100%;
-      padding: 0.8rem 0;
+      padding: 0.6rem 0;
       border-bottom: 1px solid var(--border-color);
     }
     .page-link:last-child { border-bottom: none; }
+  }
+
+  @media (max-width: 480px) {
+    .site-header .wrapper { padding: 0 1rem; }
+    .site-nav { right: 1rem; }
   }
 </style>
 
