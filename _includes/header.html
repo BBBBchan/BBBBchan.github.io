@@ -26,32 +26,26 @@
 </header>
 
 <style>
-  /* 🔧 强制覆盖 main.scss 冲突样式 */
-  *, *::before, *::after { box-sizing: border-box !important; }
-  
-  body {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* 🔧 统一容器宽度（header 与内容完全一致） */
-  .container,
-  .site-header .wrapper {
-    width: min(85%, 1600px) !important;
-    min-width: min(85vw, 1200px) !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 2rem !important;
-    box-sizing: border-box !important;
-  }
-  
-  /* ========== Header 基础样式 ========== */
+  /* ========== Header 样式（与 index.html 完全一致） ========== */
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --border-color: #e2e8f0;
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
     --bg-soft: #f7fafc;
+  }
+
+  /* 🔧 统一容器宽度 - 与 index.html 的 .container 完全一致 */
+  .site-header .wrapper {
+    width: min(85%, 1600px);
+    min-width: min(85vw, 1200px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
   }
 
   .site-header {
@@ -64,39 +58,10 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
-  .site-header .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .site-title {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-
   .site-title img {
     height: 40px;
     width: auto;
     object-fit: contain;
-  }
-
-  .site-nav {
-    display: flex;
-    align-items: center;
-  }
-
-  .menu-icon {
-    display: none;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-
-  .menu-icon::before {
-    content: "☰";
-    font-size: 1.5rem;
-    color: var(--text-primary);
   }
 
   .menu {
@@ -120,13 +85,12 @@
     background: var(--bg-soft);
   }
 
-  /* ========== 响应式（与 index.html 一致） ========== */
+  /* ========== 响应式（与 index.html 断点一致） ========== */
   @media (max-width: 992px) {
-    .container,
     .site-header .wrapper {
-      width: 92% !important;
-      min-width: 92% !important;
-      padding: 0 1.5rem !important;
+      width: 92%;
+      min-width: 92%;
+      padding: 0 1.5rem;
     }
     .site-title img { height: 35px; }
     .menu { gap: 1rem; }
@@ -134,10 +98,9 @@
   }
 
   @media (max-width: 768px) {
-    .container,
     .site-header .wrapper {
-      width: 95% !important;
-      padding: 0 1rem !important;
+      width: 95%;
+      padding: 0 1rem;
     }
     .menu-icon { display: block; }
     .menu {
@@ -162,10 +125,9 @@
   }
 
   @media (max-width: 480px) {
-    .container,
     .site-header .wrapper {
-      width: 98% !important;
-      padding: 0 0.8rem !important;
+      width: 98%;
+      padding: 0 0.8rem;
     }
     .site-title img { height: 32px; }
     .menu { padding: 1rem 1.5rem; }
