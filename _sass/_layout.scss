@@ -4,24 +4,24 @@
 .site-header {
   border-bottom: 1px solid $grey-color-light;
   min-height: 56px;
-
   padding-top: 10px;
   padding-bottom: 10px;
+  position: relative;
 
   @include media-query($on-mobile) {
     padding-top: 0;
     padding-bottom: 0;
   }
-
-  // Positioning context for the mobile navigation icon
-  position: relative;
 }
 
 .site-title {
   font-size: 26px;
   line-height: 56px;
   letter-spacing: -1px;
-  float: left;
+  // 🔧 移除 float，使用 flex 兼容
+  display: flex;
+  align-items: center;
+  float: none;
 
   img {
     height: 28px;
@@ -38,8 +38,11 @@
  */
 .site-nav {
   z-index: 10;
-  float: right;
+  // 🔧 移除 float，使用 flex 兼容
+  float: none;
   line-height: 56px;
+  display: flex;
+  align-items: center;
 
   .menu-icon {
     display: none;
@@ -49,7 +52,6 @@
     color: $text-color;
     line-height: $base-line-height;
 
-    // Gaps between nav items, but not on the first one
     &:not(:first-child) {
       margin-left: 20px;
     }
@@ -59,7 +61,6 @@
     position: absolute;
     top: 12px;
     right: 24px;
-
     border: 1px solid $grey-color-light;
     border-radius: 5px;
     text-align: right;
@@ -72,7 +73,6 @@
       line-height: 0;
       padding-top: 4px;
       text-align: center;
-
       background: #ffffff url($base-url + '/assets/img/menu.png') 6px 4px no-repeat;
       background-size: 26px 26px;
     }
