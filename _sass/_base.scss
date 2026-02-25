@@ -1,3 +1,7 @@
+// 🔧 全局 border-box，避免 padding 导致宽度偏移
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 /**
  * Reset some basic elements
  */
