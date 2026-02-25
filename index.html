@@ -124,38 +124,10 @@ items:
     --bg-soft: #f7fafc;
   }
 
-  /* ========== 个人简介区域 ========== */
+  /* ========== 个人简介区域（移除左侧头像） ========== */
   .profile-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-  }
-
-  /* 🔲 方形头像样式 */
-  .profile-picture {
-    flex-shrink: 0;
-  }
-
-  .profile-picture img {
-    width: 160px;
-    height: 160px;
-    border-radius: 16px;  /* 🔲 方形带圆角 */
-    object-fit: cover;
-    border: 4px solid #e0e0e0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .profile-picture img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-
-  .profile-content {
-    flex: 1;
-    min-width: 280px;
+    max-width: 900px;
+    margin: 0 auto 2.5rem auto;
   }
 
   .profile-content p {
@@ -163,6 +135,7 @@ items:
     color: var(--text-secondary);
     margin-bottom: 1rem;
     text-align: justify;
+    font-size: 1rem;
   }
 
   .contact-info {
@@ -231,7 +204,7 @@ items:
     font-style: italic;
   }
 
-  /* ========== 实习经历样式（带Logo） ========== */
+  /* ========== 实习经历样式（带 Logo） ========== */
   .experience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -339,11 +312,10 @@ items:
     border: 1px solid var(--border-color);
   }
 
-  /* ========== 出版物卡片样式（更紧凑布局） ========== */
+  /* ========== 出版物卡片样式（🔧 左右分布布局） ========== */
   .publications-grid {
     display: grid;
-    /* 🔧 减小最小宽度，一行可显示更多卡片 */
-    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
     gap: 1.5rem;
   }
 
@@ -355,8 +327,9 @@ items:
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    flex-direction: row;  /* 🔧 横向布局：图片左，文字右 */
+    height: auto;
+    min-height: 200px;
   }
 
   .pub-card:hover {
@@ -364,22 +337,22 @@ items:
     box-shadow: var(--card-shadow-hover);
   }
 
-  /* 🔧 图片区域优化 */
+  /* 🔧 左侧图片区域 */
   .pub-image {
-    width: 100%;
-    height: 180px;  /* 🔧 稍微降低高度，更紧凑 */
+    width: 280px;  /* 🔧 固定宽度 */
+    flex-shrink: 0;
     background: var(--bg-soft);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.8rem;
-    box-sizing: border-box;
+    padding: 1rem;
     overflow: hidden;
+    border-right: 1px solid var(--border-color);
   }
 
   .pub-image img {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 180px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -387,18 +360,20 @@ items:
   }
 
   .pub-card:hover .pub-image img {
-    transform: scale(1.02);
+    transform: scale(1.03);
   }
 
+  /* 🔧 右侧文字区域 */
   .pub-content {
-    padding: 1.2rem;
+    padding: 1.2rem 1.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
   }
 
   .pub-title {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.6rem;
@@ -423,7 +398,6 @@ items:
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-top: auto;
   }
 
   .pub-link {
@@ -460,19 +434,28 @@ items:
   /* ========== 响应式设计 ========== */
   @media (max-width: 992px) {
     .publications-grid {
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      grid-template-columns: 1fr;  /* 🔧 平板及以下改为单列 */
+    }
+
+    .pub-card {
+      flex-direction: column;  /* 🔧 恢复上下布局 */
+    }
+
+    .pub-image {
+      width: 100%;
+      height: 200px;
+      border-right: none;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .pub-image img {
+      max-height: 100%;
     }
   }
 
   @media (max-width: 768px) {
     .profile-section {
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-    }
-
-    .profile-content {
-      min-width: 100%;
     }
 
     .profile-content p {
@@ -483,14 +466,9 @@ items:
       justify-content: center;
     }
 
-    .experience-grid,
-    .publications-grid {
+    .experience-grid {
       grid-template-columns: 1fr;
       gap: 1.2rem;
-    }
-
-    .pub-image {
-      height: 160px;
     }
 
     .exp-header {
@@ -505,20 +483,23 @@ items:
     .exp-logo-wrapper {
       width: 100%;
     }
-  }
-
-  @media (max-width: 480px) {
-    .profile-picture img {
-      width: 140px;
-      height: 140px;
-    }
 
     .section-header {
       font-size: 1.5rem;
     }
+  }
+
+  @media (max-width: 480px) {
+    .section-header {
+      font-size: 1.4rem;
+    }
 
     .pub-title {
       font-size: 0.95rem;
+    }
+
+    .pub-image {
+      height: 160px;
     }
   }
 
@@ -545,13 +526,8 @@ items:
   }
 </style>
 
-<!-- 个人简介区域 -->
+<!-- 个人简介区域（🔧 移除左侧头像，只保留文字） -->
 <div class="profile-section">
-  <div class="profile-picture">
-    {% if page.profile_picture %}
-    <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
-    {% endif %}
-  </div>
   <div class="profile-content">
     <p>
       Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
@@ -587,7 +563,7 @@ items:
   </div>
 </div>
 
-<!-- 🔹 实习经历区域（带Logo） -->
+<!-- 🔹 实习经历区域（带 Logo） -->
 <div id="experience">
   <h2 class="section-header">Internship Experience</h2>
   <div class="experience-grid">
@@ -596,12 +572,7 @@ items:
     <div class="exp-card">
       <div class="exp-header">
         <div class="exp-logo-wrapper">
-          <!-- 🔧 替换为实际logo路径，建议使用透明背景PNG -->
-          <img src="/assets/img/ailab.png" alt="Shanghai AI Lab" class="exp-logo" 
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div style="display:none; width:40px; height:40px; border-radius:8px; background:var(--primary-gradient); align-items:center; justify-content:center; color:white; font-weight:bold; font-size:0.8rem">
-            SAIL
-          </div>
+          <img src="/assets/img/ailab.png" alt="Shanghai AI Lab" class="exp-logo">
           <span class="exp-company">Shanghai AI Laboratory</span>
         </div>
         <span class="exp-period">Dec 2025 – Present</span>
@@ -622,12 +593,7 @@ items:
     <div class="exp-card">
       <div class="exp-header">
         <div class="exp-logo-wrapper">
-          <!-- 🔧 替换为实际logo路径 -->
-          <img src="/assets/img/tongyi.png" alt="Tongyi Lab" class="exp-logo"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div style="display:none; width:40px; height:40px; border-radius:8px; background:linear-gradient(135deg, #ff6b6b, #ee5a24); align-items:center; justify-content:center; color:white; font-weight:bold; font-size:0.7rem">
-            通义
-          </div>
+          <img src="/assets/img/tongyi.png" alt="Tongyi Lab" class="exp-logo">
           <span class="exp-company">Tongyi Lab, Alibaba</span>
         </div>
         <span class="exp-period">Sep 2024 – Dec 2025</span>
@@ -656,13 +622,17 @@ items:
   <div class="publications-grid">
     {% for item in page.items %}
     <div class="pub-card">
+      <!-- 🔧 左侧图片 -->
       <div class="pub-image">
         <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
       </div>
+      <!-- 🔧 右侧文字 -->
       <div class="pub-content">
-        <h3 class="pub-title">{{ item.title }}</h3>
-        <p class="pub-authors">{{ item.author }}</p>
-        <p class="pub-venue">{{ item.pubname }}</p>
+        <div>
+          <h3 class="pub-title">{{ item.title }}</h3>
+          <p class="pub-authors">{{ item.author }}</p>
+          <p class="pub-venue">{{ item.pubname }}</p>
+        </div>
         
         <div class="pub-links">
           {% if item.paper and item.paper != "" %}
