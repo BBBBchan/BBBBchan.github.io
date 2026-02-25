@@ -133,8 +133,6 @@ items:
     --text-secondary: #4a5568;
     --text-muted: #718096;
     --bg-soft: #f7fafc;
-    
-    /* 出版物类型颜色 */
     --pub-conference: #10b981;
     --pub-arxiv: #f59e0b;
     --pub-report: #6366f1;
@@ -168,7 +166,7 @@ items:
     padding: 0 2rem;
   }
 
-  /* ========== 个人简介区域（🔧 卡片内左右布局：照片 + 文字） ========== */
+  /* ========== 个人简介区域（🔧 照片完整显示不裁剪） ========== */
   .profile-section {
     margin: 0 auto 2.5rem auto;
     padding: 1.5rem 0;
@@ -186,15 +184,15 @@ items:
     width: 100%;
   }
 
-  /* 左侧照片区域 */
+  /* 左侧照片区域 - 🔧 修改：固定宽度，高度自适应 */
   .profile-image {
     flex-shrink: 0;
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    /* 移除固定高度，让高度自适应图片比例 */
+    background: var(--bg-soft);
     border-radius: 12px;
     overflow: hidden;
     border: 3px solid var(--bg-soft);
-    background: var(--bg-soft);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,8 +200,10 @@ items:
 
   .profile-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    /* 🔧 关键修改：contain 确保完整显示不裁剪 */
+    object-fit: contain;
+    display: block;
   }
 
   /* 右侧文字内容 */
@@ -591,8 +591,7 @@ items:
     }
 
     .profile-image {
-      width: 150px;
-      height: 150px;
+      width: 180px;
     }
 
     .profile-content {
@@ -650,8 +649,7 @@ items:
     }
 
     .profile-image {
-      width: 130px;
-      height: 130px;
+      width: 160px;
     }
 
     .pub-image {
@@ -688,8 +686,7 @@ items:
     }
 
     .profile-image {
-      width: 110px;
-      height: 110px;
+      width: 140px;
     }
 
     .pub-image {
@@ -740,10 +737,10 @@ items:
 <!-- 页面容器 -->
 <div class="container">
 
-  <!-- 个人简介区域（🔧 卡片内左右布局：照片 + 文字） -->
+  <!-- 个人简介区域 -->
   <div class="profile-section">
     <div class="profile-wrapper">
-      <!-- 左侧照片 -->
+      <!-- 左侧照片 - 🔧 完整显示不裁剪 -->
       <div class="profile-image">
         <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
       </div>
@@ -790,7 +787,6 @@ items:
     <h2 class="section-header">Internship Experience</h2>
     <div class="experience-grid">
       
-      <!-- 实习经历 1: 上海人工智能实验室 -->
       <div class="exp-card">
         <div class="exp-header">
           <div class="exp-logo-wrapper">
@@ -811,7 +807,6 @@ items:
         </div>
       </div>
 
-      <!-- 实习经历 2: 通义实验室 -->
       <div class="exp-card">
         <div class="exp-header">
           <div class="exp-logo-wrapper">
@@ -841,15 +836,12 @@ items:
     <h2 class="section-header">Selected Publications</h2>
     <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
     
-    <!-- 出版物列表（单栏垂直排列） -->
     <div class="publications-grid">
       {% for item in page.items %}
       <div class="pub-card">
-        <!-- 左侧图片 - 完整显示不裁剪 -->
         <div class="pub-image">
           <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
         </div>
-        <!-- 右侧文字 -->
         <div class="pub-content">
           <div>
             <h3 class="pub-title">{{ item.title }}</h3>
