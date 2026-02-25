@@ -19,35 +19,6 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
   -webkit-font-smoothing: antialiased;
 }
 
-// 🔧 全局 border-box，避免 padding 导致宽度偏移
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/**
- * Reset some basic elements
- */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-hr,
-dl,
-dd,
-ol,
-ul,
-figure {
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
 /**
  * Basic styling
  */
