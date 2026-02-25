@@ -10,6 +10,7 @@ items:
     alt: arxiv
   author: <b>Boyuan Sun</b>, Bo-Wen Yin, Yuan-Ming Li, Xihan Wei, Qibin Hou
   pubname: IEEE Computer Vision and Pattern Recognition 2026 <b>(CVPR 2026)</b>
+  pubtype: conference
   bibtex: 
 - title: GeoAgent&#58; Learning to Geolocate Everywhere with Reinforced Geographic Characteristics
   image:
@@ -17,6 +18,7 @@ items:
     alt: arxiv
   author: Modi Jin, Yiming Zhang, <b>Boyuan Sun</b>, Dingwen Zhang, Ming-Ming Cheng, Qibin Hou 
   pubname: IEEE Computer Vision and Pattern Recognition 2026 <b>(CVPR 2026)</b>
+  pubtype: conference
   code: https://github.com/HVision-NKU/GeoAgent  
   paper: https://arxiv.org/abs/2602.12617  
   project: https://ghost233lism.github.io/GeoAgent-page/  
@@ -29,6 +31,7 @@ items:
     alt: arxiv
   author: <b>Boyuan Sun*</b>, Modi Jin*,  Bowen Yin, Qibin Hou#
   pubname: Arxiv preprint 2025
+  pubtype: arxiv
   code: https://github.com/HVision-NKU/DepthAnythingAC  
   paper: https://arxiv.org/abs/2507.01634  
   project: https://ghost233lism.github.io/depthanything-AC-page/  
@@ -41,6 +44,7 @@ items:
     alt: arxiv
   author: <b>Boyuan Sun*</b>, Jiaxing Zhao*,  Xihan Wei, Qibin Hou#
   pubname: Arxiv preprint 2025
+  pubtype: arxiv
   code: https://github.com/HumanMLLM/LLaVA-Scissor  
   paper: https://arxiv.org/abs/2506.21862  
   hf: https://huggingface.co/BBBBCHAN/LLaVA-Scissor-baseline-7B  
@@ -51,6 +55,7 @@ items:
     alt: arxiv
   author: Qize Yang*, Shimin Yao*, Weixuan Chen*, Shenghao Fu, Detao Bai, Jiaxing Zhao, <b>Boyuan Sun</b>, Bowen Yin, Xihan Wei, Jingren Zhou
   pubname: Technical Report
+  pubtype: report
   code: https://github.com/HumanMLLM/HumanOmniV2  
   paper: https://arxiv.org/abs/2506.21277  
   hf: https://huggingface.co/PhilipC/HumanOmniV2  
@@ -61,6 +66,7 @@ items:
     alt: arxiv
   author: Jiaxing Zhao*, Qize Yang*, Yixing Peng*, Detao Bai* Shimin Yao*, <b>Boyuan Sun</b>, Xiang Chen, Shenghao Fu, Weixuan Chen, Xihan Wei, Liefeng Bo#
   pubname: Technical Report
+  pubtype: report
   code: https://github.com/HumanMLLM/HumanOmni  
   paper: https://arxiv.org/abs/2501.15111  
   bibtex: 
@@ -70,6 +76,7 @@ items:
     alt: arxiv
   author: Jiaxing Zhao*, <b>Boyuan Sun*</b>, Xiang Chen, Xihan Wei, Qibin Hou#
   pubname: Arxiv preprint 2025
+  pubtype: arxiv
   code: https://github.com/Jiaxing-star/LLaVA-Octopus  
   paper: https://arxiv.org/abs/2501.05067  
   bibtex: 
@@ -79,6 +86,7 @@ items:
     alt: arxiv
   author: Jiaxing Zhao*, <b>Boyuan Sun*</b>, Xiang Chen, Xihan Wei
   pubname: Association for the Advancement of Artificial Intelligence 2026 <b>(AAAI 2026)</b>
+  pubtype: conference
   code: https://github.com/Jiaxing-star/FacialDynamic  
   paper: https://arxiv.org/abs/2501.07978  
   bibtex:
@@ -88,6 +96,7 @@ items:
     alt: arxiv
   author: Zhong-Yu Li, Xin Jin, <b>Boyuan Sun</b>, Chun-Le Guo, Ming-Ming Cheng#
   pubname: IEEE Computer Vision and Pattern Recognition 2025  <b>(CVPR 2025 Highlight)</b>
+  pubtype: conference
   code: https://github.com/lzyhha/AODRaw  
   paper: https://arxiv.org/abs/2411.15678  
   bibtex:
@@ -97,6 +106,7 @@ items:
     alt: arxiv
   author: <b>Boyuan Sun</b>, Yuqi Yang, Weifeng Yuan, Le Zhang, Ming-Ming Cheng, Qibin Hou#
   pubname: IEEE Computer Vision and Pattern Recognition 2024 <b>(CVPR 2024)</b>
+  pubtype: conference
   code: https://github.com/BBBBchan/CorrMatch  
   paper: https://arxiv.org/abs/2306.04300  
   bibtex:
@@ -106,6 +116,7 @@ items:
     alt: arxiv
   author: Bowen Yin, Xuying Zhang, Qibin Hou, <b>Bo-Yuan Sun</b>, Deng-Ping Fan, & Luc Van Gool.
   pubname: Arxiv preprint 2022
+  pubtype: arxiv
   code: https://github.com/HVision-NKU/CamoFormer  
   paper: https://arxiv.org/pdf/2212.06570.pdf  
   bibtex:
@@ -122,9 +133,14 @@ items:
     --text-secondary: #4a5568;
     --text-muted: #718096;
     --bg-soft: #f7fafc;
+    
+    /* 🔹 出版物类型颜色 */
+    --pub-conference: #10b981;    /* 正式中稿 - 绿色 */
+    --pub-arxiv: #f59e0b;         /* arxiv - 橙色 */
+    --pub-report: #6366f1;        /* technical report - 紫色 */
   }
 
-  /* ========== 个人简介区域（移除左侧头像） ========== */
+  /* ========== 个人简介区域 ========== */
   .profile-section {
     max-width: 900px;
     margin: 0 auto 2.5rem auto;
@@ -204,7 +220,33 @@ items:
     font-style: italic;
   }
 
-  /* ========== 实习经历样式（带 Logo） ========== */
+  /* ========== 图例说明 ========== */
+  .pub-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.conference { background: var(--pub-conference); }
+  .legend-dot.arxiv { background: var(--pub-arxiv); }
+  .legend-dot.report { background: var(--pub-report); }
+
+  /* ========== 实习经历样式 ========== */
   .experience-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -312,10 +354,11 @@ items:
     border: 1px solid var(--border-color);
   }
 
-  /* ========== 出版物卡片样式（🔧 左右分布布局） ========== */
+  /* ========== 出版物卡片样式（🔧 一行两个） ========== */
   .publications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+    /* 🔧 强制一行两个卡片 */
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
@@ -327,7 +370,7 @@ items:
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
-    flex-direction: row;  /* 🔧 横向布局：图片左，文字右 */
+    flex-direction: row;
     height: auto;
     min-height: 200px;
   }
@@ -337,9 +380,9 @@ items:
     box-shadow: var(--card-shadow-hover);
   }
 
-  /* 🔧 左侧图片区域 */
+  /* 左侧图片区域 */
   .pub-image {
-    width: 280px;  /* 🔧 固定宽度 */
+    width: 260px;
     flex-shrink: 0;
     background: var(--bg-soft);
     display: flex;
@@ -352,7 +395,7 @@ items:
 
   .pub-image img {
     max-width: 100%;
-    max-height: 180px;
+    max-height: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -363,9 +406,9 @@ items:
     transform: scale(1.03);
   }
 
-  /* 🔧 右侧文字区域 */
+  /* 右侧文字区域 */
   .pub-content {
-    padding: 1.2rem 1.5rem;
+    padding: 1.2rem 1.3rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -373,25 +416,54 @@ items:
   }
 
   .pub-title {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.6rem;
     line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .pub-authors {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     margin-bottom: 0.4rem;
-    line-height: 1.4;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
+  /* 🔹 出版物类型颜色样式 */
   .pub-venue {
-    color: #667eea;
     font-weight: 600;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     margin-bottom: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .pub-venue.conference {
+    color: var(--pub-conference);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  .pub-venue.arxiv {
+    color: var(--pub-arxiv);
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .pub-venue.report {
+    color: var(--pub-report);
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
   }
 
   .pub-links {
@@ -409,7 +481,7 @@ items:
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(102, 126, 234, 0.25);
@@ -432,18 +504,18 @@ items:
   }
 
   /* ========== 响应式设计 ========== */
-  @media (max-width: 992px) {
+  @media (max-width: 1200px) {
     .publications-grid {
-      grid-template-columns: 1fr;  /* 🔧 平板及以下改为单列 */
+      grid-template-columns: 1fr;  /* 中等屏幕改为单列 */
     }
 
     .pub-card {
-      flex-direction: column;  /* 🔧 恢复上下布局 */
+      flex-direction: column;
     }
 
     .pub-image {
       width: 100%;
-      height: 200px;
+      height: 180px;
       border-right: none;
       border-bottom: 1px solid var(--border-color);
     }
@@ -487,6 +559,11 @@ items:
     .section-header {
       font-size: 1.5rem;
     }
+
+    .pub-legend {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   @media (max-width: 480px) {
@@ -526,7 +603,7 @@ items:
   }
 </style>
 
-<!-- 个人简介区域（🔧 移除左侧头像，只保留文字） -->
+<!-- 个人简介区域 -->
 <div class="profile-section">
   <div class="profile-content">
     <p>
@@ -563,7 +640,7 @@ items:
   </div>
 </div>
 
-<!-- 🔹 实习经历区域（带 Logo） -->
+<!-- 实习经历区域 -->
 <div id="experience">
   <h2 class="section-header">Internship Experience</h2>
   <div class="experience-grid">
@@ -619,19 +696,36 @@ items:
   <h2 class="section-header">Selected Publications</h2>
   <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
   
+  <!-- 🔹 出版物类型图例 -->
+  <div class="pub-legend">
+    <div class="legend-item">
+      <span class="legend-dot conference"></span>
+      <span>Conference/Journal</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot arxiv"></span>
+      <span>arXiv Preprint</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot report"></span>
+      <span>Technical Report</span>
+    </div>
+  </div>
+  
   <div class="publications-grid">
     {% for item in page.items %}
     <div class="pub-card">
-      <!-- 🔧 左侧图片 -->
+      <!-- 左侧图片 -->
       <div class="pub-image">
         <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
       </div>
-      <!-- 🔧 右侧文字 -->
+      <!-- 右侧文字 -->
       <div class="pub-content">
         <div>
           <h3 class="pub-title">{{ item.title }}</h3>
           <p class="pub-authors">{{ item.author }}</p>
-          <p class="pub-venue">{{ item.pubname }}</p>
+          <!-- 🔹 根据 pubtype 添加对应 class -->
+          <p class="pub-venue {{ item.pubtype }}">{{ item.pubname }}</p>
         </div>
         
         <div class="pub-links">
