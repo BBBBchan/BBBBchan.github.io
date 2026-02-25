@@ -112,7 +112,18 @@ items:
 ---
 
 <style>
-  /* 基础样式优化 */
+  /* ========== 基础样式优化 ========== */
+  :root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    --card-shadow-hover: 0 12px 24px rgba(0,0,0,0.12);
+    --border-color: #e2e8f0;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+  }
+
+  /* 个人简介区域 */
   .profile-section {
     display: flex;
     align-items: flex-start;
@@ -147,7 +158,7 @@ items:
 
   .profile-content p {
     line-height: 1.8;
-    color: #444;
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     text-align: justify;
   }
@@ -191,39 +202,123 @@ items:
     margin-bottom: 0.5rem;
   }
 
-  /* 出版物区域样式 */
-  #publication {
-    margin-top: 3rem;
-  }
-
-  .page-heading {
+  /* ========== 章节通用样式 ========== */
+  .section-header {
     font-size: 2rem;
     font-weight: 700;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    margin: 3rem 0 1.5rem 0;
     position: relative;
     padding-bottom: 0.5rem;
   }
 
-  .page-heading::after {
+  .section-header::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     border-radius: 2px;
   }
 
-  .pub-note {
-    color: #718096;
+  .section-note {
+    color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 2rem;
     font-style: italic;
   }
 
-  /* 出版物卡片网格 */
+  /* ========== 实习经历样式 ========== */
+  .experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .exp-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+  }
+
+  .exp-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exp-company {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .exp-period {
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    color: #667eea;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .exp-role {
+    color: #667eea;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .exp-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .exp-tag {
+    background: #f7fafc;
+    color: var(--text-secondary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+  }
+
+  /* ========== 出版物卡片样式（图片修复版） ========== */
   .publications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
@@ -234,37 +329,42 @@ items:
     background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+    box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
   }
 
   .pub-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    box-shadow: var(--card-shadow-hover);
   }
 
+  /* 🔧 图片容器修复：解决不同尺寸/比例问题 */
   .pub-image {
     width: 100%;
-    height: 220px;
-    overflow: hidden;
+    height: 220px;  /* 固定高度保证卡片对齐 */
     background: #f7fafc;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
   .pub-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;  /* 🔑 关键：保持比例完整显示 */
     transition: transform 0.3s ease;
   }
 
   .pub-card:hover .pub-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   .pub-content {
@@ -277,13 +377,13 @@ items:
   .pub-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #2d3748;
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
     line-height: 1.4;
   }
 
   .pub-authors {
-    color: #4a5568;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     line-height: 1.5;
@@ -308,7 +408,7 @@ items:
     align-items: center;
     gap: 0.3rem;
     padding: 0.4rem 0.8rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -325,7 +425,7 @@ items:
 
   .pub-link.disabled {
     background: #e2e8f0;
-    color: #a0aec0;
+    color: var(--text-muted);
     cursor: not-allowed;
     box-shadow: none;
   }
@@ -334,7 +434,7 @@ items:
     transform: none;
   }
 
-  /* 响应式设计 */
+  /* ========== 响应式设计 ========== */
   @media (max-width: 768px) {
     .profile-section {
       flex-direction: column;
@@ -354,6 +454,7 @@ items:
       justify-content: center;
     }
 
+    .experience-grid,
     .publications-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
@@ -362,14 +463,22 @@ items:
     .pub-image {
       height: 180px;
     }
+
+    .exp-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .exp-period {
+      align-self: flex-start;
+    }
   }
 
-  /* 添加平滑滚动 */
+  /* ========== 其他优化 ========== */
   html {
     scroll-behavior: smooth;
   }
 
-  /* 自定义滚动条 */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -430,10 +539,55 @@ items:
   </div>
 </div>
 
+<!-- 🔹 新增：实习经历区域 -->
+<div id="experience">
+  <h2 class="section-header">Internship Experience</h2>
+  <div class="experience-grid">
+    
+    <!-- 实习经历 1: 上海人工智能实验室 -->
+    <div class="exp-card">
+      <div class="exp-header">
+        <span class="exp-company">Shanghai AI Laboratory</span>
+        <span class="exp-period">Dec 2025 – Present</span>
+      </div>
+      <div class="exp-role">Research Intern</div>
+      <p class="exp-description">
+        Working on MLE Agent Workflow, focusing on autonomous agent design, 
+        multi-step reasoning, and tool-augmented language models for scientific discovery.
+      </p>
+      <div class="exp-tags">
+        <span class="exp-tag">Agent Workflow</span>
+        <span class="exp-tag">MLE</span>
+        <span class="exp-tag">Reasoning</span>
+      </div>
+    </div>
+
+    <!-- 实习经历 2: 通义实验室 -->
+    <div class="exp-card">
+      <div class="exp-header">
+        <span class="exp-company">Tongyi Lab, Alibaba</span>
+        <span class="exp-period">Sep 2024 – Dec 2025</span>
+      </div>
+      <div class="exp-role">Research Intern</div>
+      <p class="exp-description">
+        Researched token compression methods and video understanding techniques 
+        for large multimodal models. Contributed to efficient video-LLM architectures 
+        and long-context modeling.
+      </p>
+      <div class="exp-tags">
+        <span class="exp-tag">Token Compression</span>
+        <span class="exp-tag">Video Understanding</span>
+        <span class="exp-tag">Video-LLM</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- 出版物区域 -->
 <div id="publication">
-  <h1 class="page-heading">Selected Publications</h1>
-  <p class="pub-note"><i>* Equal contribution. # Corresponding author.</i></p>
+  <h2 class="section-header">Selected Publications</h2>
+  <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
   
   <div class="publications-grid">
     {% for item in page.items %}
