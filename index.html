@@ -112,7 +112,7 @@ items:
 ---
 
 <style>
-  /* ========== 基础样式优化 ========== */
+  /* ========== 基础变量 ========== */
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --card-shadow: 0 4px 6px rgba(0,0,0,0.07);
@@ -121,9 +121,10 @@ items:
     --text-primary: #2d3748;
     --text-secondary: #4a5568;
     --text-muted: #718096;
+    --bg-soft: #f7fafc;
   }
 
-  /* 个人简介区域 */
+  /* ========== 个人简介区域 ========== */
   .profile-section {
     display: flex;
     align-items: flex-start;
@@ -132,14 +133,15 @@ items:
     flex-wrap: wrap;
   }
 
+  /* 🔲 方形头像样式 */
   .profile-picture {
     flex-shrink: 0;
   }
 
   .profile-picture img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    border-radius: 16px;  /* 🔲 方形带圆角 */
     object-fit: cover;
     border: 4px solid #e0e0e0;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -147,13 +149,13 @@ items:
   }
 
   .profile-picture img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   }
 
   .profile-content {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
   }
 
   .profile-content p {
@@ -165,19 +167,19 @@ items:
 
   .contact-info {
     margin-top: 1.5rem;
-    padding: 1.5rem;
+    padding: 1.2rem 1.5rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 12px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem 1.5rem;
     align-items: center;
   }
 
   .contact-info i {
     color: #667eea;
-    margin-right: 0.5rem;
-    width: 20px;
+    margin-right: 0.4rem;
+    width: 18px;
   }
 
   .contact-info a {
@@ -187,7 +189,7 @@ items:
     transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .contact-info a:hover {
@@ -198,16 +200,15 @@ items:
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    gap: 0.4rem;
   }
 
   /* ========== 章节通用样式 ========== */
   .section-header {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 3rem 0 1.5rem 0;
+    margin: 2.5rem 0 1.2rem 0;
     position: relative;
     padding-bottom: 0.5rem;
   }
@@ -217,7 +218,7 @@ items:
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60px;
+    width: 50px;
     height: 4px;
     background: var(--primary-gradient);
     border-radius: 2px;
@@ -226,27 +227,29 @@ items:
   .section-note {
     color: var(--text-muted);
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-style: italic;
   }
 
-  /* ========== 实习经历样式 ========== */
+  /* ========== 实习经历样式（带Logo） ========== */
   .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
   }
 
   .exp-card {
     background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
+    border-radius: 14px;
+    padding: 1.3rem;
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .exp-card::before {
@@ -255,7 +258,7 @@ items:
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 3px;
     background: var(--primary-gradient);
   }
 
@@ -267,14 +270,31 @@ items:
   .exp-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 1rem;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
+  }
+
+  .exp-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+  }
+
+  .exp-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: var(--bg-soft);
+    padding: 4px;
+    border: 1px solid var(--border-color);
   }
 
   .exp-company {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: var(--text-primary);
   }
@@ -282,9 +302,9 @@ items:
   .exp-period {
     background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
     color: #667eea;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 16px;
+    font-size: 0.8rem;
     font-weight: 500;
     white-space: nowrap;
   }
@@ -292,64 +312,67 @@ items:
   .exp-role {
     color: #667eea;
     font-weight: 500;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
   }
 
   .exp-description {
     color: var(--text-secondary);
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    flex: 1;
   }
 
   .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    gap: 0.4rem;
   }
 
   .exp-tag {
-    background: #f7fafc;
+    background: var(--bg-soft);
     color: var(--text-secondary);
-    padding: 0.25rem 0.6rem;
-    border-radius: 6px;
-    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.75rem;
     border: 1px solid var(--border-color);
   }
 
-  /* ========== 出版物卡片样式（图片修复版） ========== */
+  /* ========== 出版物卡片样式（更紧凑布局） ========== */
   .publications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    gap: 2rem;
+    /* 🔧 减小最小宽度，一行可显示更多卡片 */
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 1.5rem;
   }
 
   .pub-card {
     background: white;
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 
   .pub-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
   }
 
-  /* 🔧 图片容器修复：解决不同尺寸/比例问题 */
+  /* 🔧 图片区域优化 */
   .pub-image {
     width: 100%;
-    height: 220px;  /* 固定高度保证卡片对齐 */
-    background: #f7fafc;
+    height: 180px;  /* 🔧 稍微降低高度，更紧凑 */
+    background: var(--bg-soft);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.8rem;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -359,68 +382,68 @@ items:
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain;  /* 🔑 关键：保持比例完整显示 */
+    object-fit: contain;
     transition: transform 0.3s ease;
   }
 
   .pub-card:hover .pub-image img {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
   .pub-content {
-    padding: 1.5rem;
+    padding: 1.2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
   .pub-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
     line-height: 1.4;
   }
 
   .pub-authors {
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
   }
 
   .pub-venue {
     color: #667eea;
     font-weight: 600;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
   }
 
   .pub-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-top: auto;
   }
 
   .pub-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    padding: 0.4rem 0.8rem;
+    gap: 0.25rem;
+    padding: 0.3rem 0.6rem;
     background: var(--primary-gradient);
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.85rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.25);
   }
 
   .pub-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.35);
   }
 
   .pub-link.disabled {
@@ -435,6 +458,12 @@ items:
   }
 
   /* ========== 响应式设计 ========== */
+  @media (max-width: 992px) {
+    .publications-grid {
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    }
+  }
+
   @media (max-width: 768px) {
     .profile-section {
       flex-direction: column;
@@ -457,11 +486,11 @@ items:
     .experience-grid,
     .publications-grid {
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
 
     .pub-image {
-      height: 180px;
+      height: 160px;
     }
 
     .exp-header {
@@ -472,6 +501,25 @@ items:
     .exp-period {
       align-self: flex-start;
     }
+
+    .exp-logo-wrapper {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .profile-picture img {
+      width: 140px;
+      height: 140px;
+    }
+
+    .section-header {
+      font-size: 1.5rem;
+    }
+
+    .pub-title {
+      font-size: 0.95rem;
+    }
   }
 
   /* ========== 其他优化 ========== */
@@ -480,7 +528,7 @@ items:
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -489,7 +537,7 @@ items:
 
   ::-webkit-scrollbar-thumb {
     background: #667eea;
-    border-radius: 5px;
+    border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -539,7 +587,7 @@ items:
   </div>
 </div>
 
-<!-- 🔹 新增：实习经历区域 -->
+<!-- 🔹 实习经历区域（带Logo） -->
 <div id="experience">
   <h2 class="section-header">Internship Experience</h2>
   <div class="experience-grid">
@@ -547,7 +595,15 @@ items:
     <!-- 实习经历 1: 上海人工智能实验室 -->
     <div class="exp-card">
       <div class="exp-header">
-        <span class="exp-company">Shanghai AI Laboratory</span>
+        <div class="exp-logo-wrapper">
+          <!-- 🔧 替换为实际logo路径，建议使用透明背景PNG -->
+          <img src="/assets/img/ailab.png" alt="Shanghai AI Lab" class="exp-logo" 
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div style="display:none; width:40px; height:40px; border-radius:8px; background:var(--primary-gradient); align-items:center; justify-content:center; color:white; font-weight:bold; font-size:0.8rem">
+            SAIL
+          </div>
+          <span class="exp-company">Shanghai AI Laboratory</span>
+        </div>
         <span class="exp-period">Dec 2025 – Present</span>
       </div>
       <div class="exp-role">Research Intern</div>
@@ -565,7 +621,15 @@ items:
     <!-- 实习经历 2: 通义实验室 -->
     <div class="exp-card">
       <div class="exp-header">
-        <span class="exp-company">Tongyi Lab, Alibaba</span>
+        <div class="exp-logo-wrapper">
+          <!-- 🔧 替换为实际logo路径 -->
+          <img src="/assets/img/tongyi.png" alt="Tongyi Lab" class="exp-logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div style="display:none; width:40px; height:40px; border-radius:8px; background:linear-gradient(135deg, #ff6b6b, #ee5a24); align-items:center; justify-content:center; color:white; font-weight:bold; font-size:0.7rem">
+            通义
+          </div>
+          <span class="exp-company">Tongyi Lab, Alibaba</span>
+        </div>
         <span class="exp-period">Sep 2024 – Dec 2025</span>
       </div>
       <div class="exp-role">Research Intern</div>
@@ -606,7 +670,7 @@ items:
               <i class="fa-solid fa-file-pdf"></i> Paper
             </a>
           {% else %}
-            <span class="pub-link disabled">Paper (Soon)</span>
+            <span class="pub-link disabled">Paper</span>
           {% endif %}
           
           {% if item.code and item.code != "" %}
