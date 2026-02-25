@@ -6,7 +6,6 @@
 
     <nav class="site-nav">
       <a href="#" class="menu-icon"></a>
-
       <div class="menu">
         {% for page in site.header.pages %}
           {% if page.slug and page.slug != "" and page.slug != nil %}
@@ -14,28 +13,39 @@
           {% else %}
             {% assign page_link = "/" | append: page.name | downcase %}
           {% endif %}
-
           {% if page.name == "Publication" %}
             {% assign page_link = "#" | append: page.name | downcase %}
           {% endif %}
-
           {% assign page_link = page_link | absolute_url %}
-          <a class="page-link" href="{{ page_link }}">
-            {{ page.name }}
-          </a>
+          <a class="page-link" href="{{ page_link }}">{{ page.name }}</a>
         {% endfor %}
-        
-        <!-- 🔧 Intern 按钮（样式与其他按钮一致） -->
-        <a class="page-link" href="#experience">
-          Intern
-        </a>
+        <a class="page-link" href="#experience">Intern</a>
       </div>
     </nav>
   </div>
 </header>
 
 <style>
-  /* ========== Header 样式（与 index.html 完全一致） ========== */
+  /* 🔧 强制覆盖 main.scss 冲突样式 */
+  *, *::before, *::after { box-sizing: border-box !important; }
+  
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* 🔧 统一容器宽度（header 与内容完全一致） */
+  .container,
+  .site-header .wrapper {
+    width: min(85%, 1600px) !important;
+    min-width: min(85vw, 1200px) !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* ========== Header 基础样式 ========== */
   :root {
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --border-color: #e2e8f0;
@@ -54,17 +64,10 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
-  /* 🔧 与 index.html 完全相同的容器宽度设置 */
   .site-header .wrapper {
-    width: min(85%, 1600px);
-    min-width: min(85vw, 1200px);
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-sizing: border-box;
   }
 
   .site-title {
@@ -102,7 +105,6 @@
     gap: 1.5rem;
   }
 
-  /* 🔧 所有导航按钮统一样式（包括 Intern） */
   .page-link {
     color: var(--text-secondary);
     text-decoration: none;
@@ -118,38 +120,26 @@
     background: var(--bg-soft);
   }
 
-  /* ========== 响应式设计（与 index.html 断点一致） ========== */
+  /* ========== 响应式（与 index.html 一致） ========== */
   @media (max-width: 992px) {
+    .container,
     .site-header .wrapper {
-      width: 92%;
-      min-width: 92%;
-      padding: 0 1.5rem;
+      width: 92% !important;
+      min-width: 92% !important;
+      padding: 0 1.5rem !important;
     }
-
-    .site-title img {
-      height: 35px;
-    }
-
-    .menu {
-      gap: 1rem;
-    }
-
-    .page-link {
-      font-size: 0.9rem;
-      padding: 0.4rem 0.6rem;
-    }
+    .site-title img { height: 35px; }
+    .menu { gap: 1rem; }
+    .page-link { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
   }
 
   @media (max-width: 768px) {
+    .container,
     .site-header .wrapper {
-      width: 95%;
-      padding: 0 1rem;
+      width: 95% !important;
+      padding: 0 1rem !important;
     }
-
-    .menu-icon {
-      display: block;
-    }
-
+    .menu-icon { display: block; }
     .menu {
       display: none;
       position: absolute;
@@ -162,52 +152,36 @@
       border-bottom: 1px solid var(--border-color);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
-    .menu.active {
-      display: flex;
-    }
-
+    .menu.active { display: flex; }
     .page-link {
       width: 100%;
       padding: 0.8rem 0;
       border-bottom: 1px solid var(--border-color);
     }
-
-    .page-link:last-child {
-      border-bottom: none;
-    }
+    .page-link:last-child { border-bottom: none; }
   }
 
   @media (max-width: 480px) {
+    .container,
     .site-header .wrapper {
-      width: 98%;
-      padding: 0 0.8rem;
+      width: 98% !important;
+      padding: 0 0.8rem !important;
     }
-
-    .site-title img {
-      height: 32px;
-    }
-
-    .menu {
-      padding: 1rem 1.5rem;
-    }
+    .site-title img { height: 32px; }
+    .menu { padding: 1rem 1.5rem; }
   }
 </style>
 
 <script>
-  // 🔧 移动端菜单切换
   document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.menu-icon');
     const menu = document.querySelector('.menu');
-    
     if (menuIcon && menu) {
       menuIcon.addEventListener('click', function(e) {
         e.preventDefault();
         menu.classList.toggle('active');
       });
     }
-
-    // 🔧 点击菜单项后关闭移动端菜单
     const pageLinks = document.querySelectorAll('.page-link');
     pageLinks.forEach(function(link) {
       link.addEventListener('click', function() {
