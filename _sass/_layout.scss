@@ -18,10 +18,9 @@
   font-size: 26px;
   line-height: 56px;
   letter-spacing: -1px;
-  // 🔧 移除 float，使用 flex 兼容
   display: flex;
   align-items: center;
-  float: none;
+  float: none;  /* 🔧 移除 float */
 
   img {
     height: 28px;
@@ -38,8 +37,7 @@
  */
 .site-nav {
   z-index: 10;
-  // 🔧 移除 float，使用 flex 兼容
-  float: none;
+  float: none;  /* 🔧 移除 float */
   line-height: 56px;
   display: flex;
   align-items: center;
