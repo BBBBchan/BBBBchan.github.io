@@ -134,16 +134,23 @@ items:
     --text-muted: #718096;
     --bg-soft: #f7fafc;
     
-    /* 🔹 出版物类型颜色 */
-    --pub-conference: #10b981;    /* 正式中稿 - 绿色 */
-    --pub-arxiv: #f59e0b;         /* arxiv - 橙色 */
-    --pub-report: #6366f1;        /* technical report - 紫色 */
+    /* 出版物类型颜色 */
+    --pub-conference: #10b981;
+    --pub-arxiv: #f59e0b;
+    --pub-report: #6366f1;
+  }
+
+  /* ========== 页面容器（🔧 变宽） ========== */
+  .container {
+    max-width: 1400px;  /* 🔧 从 900px 增加到 1400px */
+    margin: 0 auto;
+    padding: 0 2rem;
   }
 
   /* ========== 个人简介区域 ========== */
   .profile-section {
-    max-width: 900px;
-    margin: 0 auto 2.5rem auto;
+    margin: 0 auto 3rem auto;
+    padding: 2rem 0;
   }
 
   .profile-content p {
@@ -151,23 +158,23 @@ items:
     color: var(--text-secondary);
     margin-bottom: 1rem;
     text-align: justify;
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .contact-info {
     margin-top: 1.5rem;
-    padding: 1.2rem 1.5rem;
+    padding: 1.3rem 1.8rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 12px;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem 1.5rem;
+    gap: 1rem 2rem;
     align-items: center;
   }
 
   .contact-info i {
     color: #667eea;
-    margin-right: 0.4rem;
+    margin-right: 0.5rem;
     width: 18px;
   }
 
@@ -178,7 +185,7 @@ items:
     transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
   .contact-info a:hover {
@@ -189,17 +196,17 @@ items:
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
   /* ========== 章节通用样式 ========== */
   .section-header {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 2.5rem 0 1.2rem 0;
+    margin: 3rem 0 1.5rem 0;
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
   }
 
   .section-header::after {
@@ -207,7 +214,7 @@ items:
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
+    width: 60px;
     height: 4px;
     background: var(--primary-gradient);
     border-radius: 2px;
@@ -215,7 +222,7 @@ items:
 
   .section-note {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
     font-style: italic;
   }
@@ -223,22 +230,26 @@ items:
   /* ========== 图例说明 ========== */
   .pub-legend {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+    background: var(--bg-soft);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
   }
 
   .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.85rem;
+    gap: 0.6rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
   }
 
   .legend-dot {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
   }
 
@@ -249,15 +260,15 @@ items:
   /* ========== 实习经历样式 ========== */
   .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.2rem;
-    margin-bottom: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
   }
 
   .exp-card {
     background: white;
     border-radius: 14px;
-    padding: 1.3rem;
+    padding: 1.5rem;
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
@@ -286,30 +297,30 @@ items:
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.8rem;
-    gap: 0.8rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
     flex-wrap: wrap;
   }
 
   .exp-logo-wrapper {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
     flex: 1;
   }
 
   .exp-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
     object-fit: contain;
     background: var(--bg-soft);
-    padding: 4px;
+    padding: 5px;
     border: 1px solid var(--border-color);
   }
 
   .exp-company {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
   }
@@ -317,9 +328,9 @@ items:
   .exp-period {
     background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
     color: #667eea;
-    padding: 0.25rem 0.7rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 16px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
     white-space: nowrap;
   }
@@ -327,75 +338,76 @@ items:
   .exp-role {
     color: #667eea;
     font-weight: 500;
-    margin-bottom: 0.4rem;
-    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
   }
 
   .exp-description {
     color: var(--text-secondary);
-    line-height: 1.6;
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
     flex: 1;
   }
 
   .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
 
   .exp-tag {
     background: var(--bg-soft);
     color: var(--text-secondary);
-    padding: 0.2rem 0.5rem;
-    border-radius: 5px;
-    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
     border: 1px solid var(--border-color);
   }
 
-  /* ========== 出版物卡片样式（🔧 一行两个） ========== */
+  /* ========== 出版物卡片样式（🔧 内容完整显示） ========== */
   .publications-grid {
     display: grid;
-    /* 🔧 强制一行两个卡片 */
+    /* 🔧 一行两个，每个卡片更宽 */
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
   }
 
   .pub-card {
     background: white;
     border-radius: 14px;
-    overflow: hidden;
+    overflow: visible;  /* 🔧 允许内容溢出可见 */
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
     display: flex;
     flex-direction: row;
-    height: auto;
-    min-height: 200px;
+    height: auto;  /* 🔧 高度自适应 */
+    min-height: 220px;
   }
 
   .pub-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow: var(--card-shadow-hover);
   }
 
   /* 左侧图片区域 */
   .pub-image {
-    width: 260px;
+    width: 300px;  /* 🔧 增加图片宽度 */
     flex-shrink: 0;
     background: var(--bg-soft);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
-    overflow: hidden;
+    padding: 1.2rem;
+    overflow: visible;  /* 🔧 允许内容可见 */
     border-right: 1px solid var(--border-color);
   }
 
   .pub-image img {
     max-width: 100%;
-    max-height: 160px;
+    max-height: 180px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -403,93 +415,96 @@ items:
   }
 
   .pub-card:hover .pub-image img {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   /* 右侧文字区域 */
   .pub-content {
-    padding: 1.2rem 1.3rem;
+    padding: 1.5rem 1.8rem;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 0.8rem;
   }
 
   .pub-title {
-    font-size: 1rem;
+    font-size: 1.08rem;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0.6rem;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin-bottom: 0.7rem;
+    line-height: 1.5;
+    /* 🔧 移除文本截断，完整显示 */
+    display: block;
+    overflow: visible;
+    text-overflow: clip;
   }
 
   .pub-authors {
     color: var(--text-secondary);
-    font-size: 0.82rem;
-    margin-bottom: 0.4rem;
-    line-height: 1.35;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    /* 🔧 移除文本截断，完整显示 */
+    display: block;
+    overflow: visible;
+    text-overflow: clip;
   }
 
-  /* 🔹 出版物类型颜色样式 */
+  /* 出版物类型颜色样式 */
   .pub-venue {
     font-weight: 600;
-    font-size: 0.78rem;
-    margin-bottom: 0.8rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    font-size: 0.82rem;
+    margin-bottom: 1rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
     display: inline-block;
+    line-height: 1.4;
   }
 
   .pub-venue.conference {
     color: var(--pub-conference);
     background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.25);
   }
 
   .pub-venue.arxiv {
     color: var(--pub-arxiv);
     background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.25);
   }
 
   .pub-venue.report {
     color: var(--pub-report);
     background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.25);
   }
 
   .pub-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .pub-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
-    padding: 0.3rem 0.6rem;
+    gap: 0.3rem;
+    padding: 0.4rem 0.75rem;
     background: var(--primary-gradient);
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.25);
+    box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
   }
 
   .pub-link:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
   }
 
   .pub-link.disabled {
@@ -504,7 +519,7 @@ items:
   }
 
   /* ========== 响应式设计 ========== */
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     .publications-grid {
       grid-template-columns: 1fr;  /* 中等屏幕改为单列 */
     }
@@ -515,7 +530,7 @@ items:
 
     .pub-image {
       width: 100%;
-      height: 180px;
+      height: 220px;
       border-right: none;
       border-bottom: 1px solid var(--border-color);
     }
@@ -525,22 +540,13 @@ items:
     }
   }
 
-  @media (max-width: 768px) {
-    .profile-section {
-      text-align: center;
-    }
-
-    .profile-content p {
-      text-align: left;
-    }
-
-    .contact-info {
-      justify-content: center;
+  @media (max-width: 992px) {
+    .container {
+      padding: 0 1.5rem;
     }
 
     .experience-grid {
       grid-template-columns: 1fr;
-      gap: 1.2rem;
     }
 
     .exp-header {
@@ -557,12 +563,46 @@ items:
     }
 
     .section-header {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
 
     .pub-legend {
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .profile-section {
+      text-align: center;
+    }
+
+    .profile-content p {
+      text-align: left;
+    }
+
+    .contact-info {
+      justify-content: center;
+    }
+
+    .section-header {
+      font-size: 1.5rem;
+    }
+
+    .pub-image {
+      height: 180px;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+    }
+
+    .pub-authors {
+      font-size: 0.85rem;
     }
   }
 
@@ -571,12 +611,14 @@ items:
       font-size: 1.4rem;
     }
 
-    .pub-title {
-      font-size: 0.95rem;
-    }
-
     .pub-image {
       height: 160px;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.8rem;
     }
   }
 
@@ -585,8 +627,13 @@ items:
     scroll-behavior: smooth;
   }
 
+  body {
+    /* 🔧 确保页面有足够宽度 */
+    min-width: 320px;
+  }
+
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
   }
 
   ::-webkit-scrollbar-track {
@@ -595,7 +642,7 @@ items:
 
   ::-webkit-scrollbar-thumb {
     background: #667eea;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -603,166 +650,170 @@ items:
   }
 </style>
 
-<!-- 个人简介区域 -->
-<div class="profile-section">
-  <div class="profile-content">
-    <p>
-      Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
-      supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
-      His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
-    </p>
+<!-- 页面容器 -->
+<div class="container">
 
-    <div class="contact-info">
-      <div class="contact-item">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>Tianjin, China</span>
-      </div>
-      <div class="contact-item">
-        <i class="fa-solid fa-envelope"></i>
-        <span>sbysbysby123<i class="fa-solid fa-at"></i>gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <a href="https://github.com/BBBBChan" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github"></i> Github
-        </a>
-      </div>
-      <div class="contact-item">
-        <a href="https://scholar.google.com/citations?user=GvTWUAEAAAAJ&hl=en" target="_blank" rel="noopener">
-          <i class="fa-solid fa-graduation-cap"></i> Google Scholar
-        </a>
-      </div>
-      <div class="contact-item">
-        <a href="https://www.bbbbchan.com" target="_blank" rel="noopener">
-          <i class="fa-solid fa-gift"></i> Blog
-        </a>
+  <!-- 个人简介区域 -->
+  <div class="profile-section">
+    <div class="profile-content">
+      <p>
+        Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
+        supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
+        His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
+      </p>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Tianjin, China</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>sbysbysby123<i class="fa-solid fa-at"></i>gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <a href="https://github.com/BBBBChan" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> Github
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="https://scholar.google.com/citations?user=GvTWUAEAAAAJ&hl=en" target="_blank" rel="noopener">
+            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="https://www.bbbbchan.com" target="_blank" rel="noopener">
+            <i class="fa-solid fa-gift"></i> Blog
+          </a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- 实习经历区域 -->
-<div id="experience">
-  <h2 class="section-header">Internship Experience</h2>
-  <div class="experience-grid">
+  <!-- 实习经历区域 -->
+  <div id="experience">
+    <h2 class="section-header">Internship Experience</h2>
+    <div class="experience-grid">
+      
+      <!-- 实习经历 1: 上海人工智能实验室 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-logo-wrapper">
+            <img src="/assets/img/ailab.png" alt="Shanghai AI Lab" class="exp-logo">
+            <span class="exp-company">Shanghai AI Laboratory</span>
+          </div>
+          <span class="exp-period">Dec 2025 – Present</span>
+        </div>
+        <div class="exp-role">Research Intern</div>
+        <p class="exp-description">
+          Working on MLE Agent Workflow, focusing on autonomous agent design, 
+          multi-step reasoning, and tool-augmented language models for scientific discovery.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">Agent Workflow</span>
+          <span class="exp-tag">MLE</span>
+          <span class="exp-tag">Reasoning</span>
+        </div>
+      </div>
+
+      <!-- 实习经历 2: 通义实验室 -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-logo-wrapper">
+            <img src="/assets/img/tongyi.png" alt="Tongyi Lab" class="exp-logo">
+            <span class="exp-company">Tongyi Lab, Alibaba</span>
+          </div>
+          <span class="exp-period">Sep 2024 – Dec 2025</span>
+        </div>
+        <div class="exp-role">Research Intern</div>
+        <p class="exp-description">
+          Researched token compression methods and video understanding techniques 
+          for large multimodal models. Contributed to efficient video-LLM architectures 
+          and long-context modeling.
+        </p>
+        <div class="exp-tags">
+          <span class="exp-tag">Token Compression</span>
+          <span class="exp-tag">Video Understanding</span>
+          <span class="exp-tag">Video-LLM</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 出版物区域 -->
+  <div id="publication">
+    <h2 class="section-header">Selected Publications</h2>
+    <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
     
-    <!-- 实习经历 1: 上海人工智能实验室 -->
-    <div class="exp-card">
-      <div class="exp-header">
-        <div class="exp-logo-wrapper">
-          <img src="/assets/img/ailab.png" alt="Shanghai AI Lab" class="exp-logo">
-          <span class="exp-company">Shanghai AI Laboratory</span>
-        </div>
-        <span class="exp-period">Dec 2025 – Present</span>
+    <!-- 出版物类型图例 -->
+    <div class="pub-legend">
+      <div class="legend-item">
+        <span class="legend-dot conference"></span>
+        <span>Conference/Journal (正式中稿)</span>
       </div>
-      <div class="exp-role">Research Intern</div>
-      <p class="exp-description">
-        Working on MLE Agent Workflow, focusing on autonomous agent design, 
-        multi-step reasoning, and tool-augmented language models for scientific discovery.
-      </p>
-      <div class="exp-tags">
-        <span class="exp-tag">Agent Workflow</span>
-        <span class="exp-tag">MLE</span>
-        <span class="exp-tag">Reasoning</span>
+      <div class="legend-item">
+        <span class="legend-dot arxiv"></span>
+        <span>arXiv Preprint</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot report"></span>
+        <span>Technical Report</span>
       </div>
     </div>
-
-    <!-- 实习经历 2: 通义实验室 -->
-    <div class="exp-card">
-      <div class="exp-header">
-        <div class="exp-logo-wrapper">
-          <img src="/assets/img/tongyi.png" alt="Tongyi Lab" class="exp-logo">
-          <span class="exp-company">Tongyi Lab, Alibaba</span>
+    
+    <div class="publications-grid">
+      {% for item in page.items %}
+      <div class="pub-card">
+        <!-- 左侧图片 -->
+        <div class="pub-image">
+          <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
         </div>
-        <span class="exp-period">Sep 2024 – Dec 2025</span>
+        <!-- 右侧文字 -->
+        <div class="pub-content">
+          <div>
+            <h3 class="pub-title">{{ item.title }}</h3>
+            <p class="pub-authors">{{ item.author }}</p>
+            <p class="pub-venue {{ item.pubtype }}">{{ item.pubname }}</p>
+          </div>
+          
+          <div class="pub-links">
+            {% if item.paper and item.paper != "" %}
+              <a href="{{ item.paper }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-file-pdf"></i> Paper
+              </a>
+            {% else %}
+              <span class="pub-link disabled">Paper</span>
+            {% endif %}
+            
+            {% if item.code and item.code != "" %}
+              <a href="{{ item.code }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> Code
+              </a>
+            {% endif %}
+            
+            {% if item.project and item.project != "" %}
+              <a href="{{ item.project }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-globe"></i> Project
+              </a>
+            {% endif %}
+            
+            {% if item.demo and item.demo != "" %}
+              <a href="{{ item.demo }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-play"></i> Demo
+              </a>
+            {% endif %}
+            
+            {% if item.hf and item.hf != "" %}
+              <a href="{{ item.hf }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-robot"></i> HF
+              </a>
+            {% endif %}
+          </div>
+        </div>
       </div>
-      <div class="exp-role">Research Intern</div>
-      <p class="exp-description">
-        Researched token compression methods and video understanding techniques 
-        for large multimodal models. Contributed to efficient video-LLM architectures 
-        and long-context modeling.
-      </p>
-      <div class="exp-tags">
-        <span class="exp-tag">Token Compression</span>
-        <span class="exp-tag">Video Understanding</span>
-        <span class="exp-tag">Video-LLM</span>
-      </div>
+      {% endfor %}
     </div>
-
   </div>
-</div>
 
-<!-- 出版物区域 -->
-<div id="publication">
-  <h2 class="section-header">Selected Publications</h2>
-  <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
-  
-  <!-- 🔹 出版物类型图例 -->
-  <div class="pub-legend">
-    <div class="legend-item">
-      <span class="legend-dot conference"></span>
-      <span>Conference/Journal</span>
-    </div>
-    <div class="legend-item">
-      <span class="legend-dot arxiv"></span>
-      <span>arXiv Preprint</span>
-    </div>
-    <div class="legend-item">
-      <span class="legend-dot report"></span>
-      <span>Technical Report</span>
-    </div>
-  </div>
-  
-  <div class="publications-grid">
-    {% for item in page.items %}
-    <div class="pub-card">
-      <!-- 左侧图片 -->
-      <div class="pub-image">
-        <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
-      </div>
-      <!-- 右侧文字 -->
-      <div class="pub-content">
-        <div>
-          <h3 class="pub-title">{{ item.title }}</h3>
-          <p class="pub-authors">{{ item.author }}</p>
-          <!-- 🔹 根据 pubtype 添加对应 class -->
-          <p class="pub-venue {{ item.pubtype }}">{{ item.pubname }}</p>
-        </div>
-        
-        <div class="pub-links">
-          {% if item.paper and item.paper != "" %}
-            <a href="{{ item.paper }}" class="pub-link" target="_blank" rel="noopener">
-              <i class="fa-solid fa-file-pdf"></i> Paper
-            </a>
-          {% else %}
-            <span class="pub-link disabled">Paper</span>
-          {% endif %}
-          
-          {% if item.code and item.code != "" %}
-            <a href="{{ item.code }}" class="pub-link" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github"></i> Code
-            </a>
-          {% endif %}
-          
-          {% if item.project and item.project != "" %}
-            <a href="{{ item.project }}" class="pub-link" target="_blank" rel="noopener">
-              <i class="fa-solid fa-globe"></i> Project
-            </a>
-          {% endif %}
-          
-          {% if item.demo and item.demo != "" %}
-            <a href="{{ item.demo }}" class="pub-link" target="_blank" rel="noopener">
-              <i class="fa-solid fa-play"></i> Demo
-            </a>
-          {% endif %}
-          
-          {% if item.hf and item.hf != "" %}
-            <a href="{{ item.hf }}" class="pub-link" target="_blank" rel="noopener">
-              <i class="fa-solid fa-robot"></i> HF
-            </a>
-          {% endif %}
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
 </div>
