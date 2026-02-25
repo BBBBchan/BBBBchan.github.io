@@ -243,48 +243,51 @@ items:
     text-decoration: underline;
   }
 
-  /* 🔧 联系 bar - 与文字宽度对齐 */
-  .contact-info {
-    padding: 0.8rem 1.2rem;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 8px;
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.6rem 1.2rem;
-    align-items: center;
-    /* 🔧 关键修改：移除 width: fit-content，让 bar 与文字区域对齐 */
-    width: auto;
-    max-width: 100%;
-    margin: 0;
-  }
+ /* 🔧 联系 bar - 与文字宽度对齐 + 链接均匀分布 */
+.contact-info {
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  align-items: center;
+  justify-content: space-evenly;  /* 🔧 关键：均匀分布 */
+  width: 100%;                     /* 🔧 关键：占满文字区域宽度 */
+  max-width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  .contact-info i {
-    color: #667eea;
-    margin-right: 0.4rem;
-    width: 16px;
-  }
+.contact-info i {
+  color: #667eea;
+  margin-right: 0.4rem;
+  width: 16px;
+}
 
-  .contact-info a {
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
+.contact-info a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
 
-  .contact-info a:hover {
-    color: #764ba2;
-    text-decoration: underline;
-  }
+.contact-info a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
 
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-  }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  /* 🔧 确保每个 item 有相等的 flex 权重 */
+  flex: 0 1 auto;
+}
 
   /* ========== 章节通用样式（🔧 左对齐） ========== */
   .section-header {
@@ -751,54 +754,54 @@ items:
 <!-- 页面容器 -->
 <div class="container">
 
-  <!-- 个人简介区域 -->
-  <div class="profile-section">
-    <div class="profile-wrapper">
-      <!-- 左侧照片 - 完整显示不裁剪 -->
-      <div class="profile-image">
-        <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
+<!-- 个人简介区域 -->
+<div class="profile-section">
+  <div class="profile-wrapper">
+    <!-- 左侧照片 - 完整显示不裁剪 -->
+    <div class="profile-image">
+      <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
+    </div>
+    
+    <!-- 右侧文字内容 - 垂直居中 -->
+    <div class="profile-content">
+      <!-- 文字包装器，确保 bar 与文字宽度一致 -->
+      <div class="profile-text-wrapper">
+        <p>
+          Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
+          supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
+          His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
+        </p>
       </div>
-      
-      <!-- 右侧文字内容 - 垂直居中 -->
-      <div class="profile-content">
-        <!-- 🔧 文字包装器，确保 bar 与文字宽度一致 -->
-        <div class="profile-text-wrapper">
-          <p>
-            Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
-            supervised by Prof. <a href="https://houqb.github.io/">Qibin Hou</a> and Prof. <a href="https://mmcheng.net/cmm">Ming-Ming Cheng</a>. He received his bachelor's degree from the School of Computer Science and Technology at Xidian University in 2021. And now he is taking the Master-Ph.D. combined program in Nankai University.
-            His research interests include Computer Vision and Multimodal Large Language Model, particularly focusing on multi-modal visual perception, vison-language model, semi-supervised learning, <i>etc</i>.
-          </p>
-        </div>
 
-        <!-- 🔧 联系 bar 与文字宽度对齐 -->
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Tianjin, China</span>
-          </div>
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>sbysbysby123@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <a href="https://github.com/BBBBChan" target="_blank" rel="noopener">
-              <i class="fa-brands fa-github"></i> Github
-            </a>
-          </div>
-          <div class="contact-item">
-            <a href="https://scholar.google.com/citations?user=GvTWUAEAAAAJ&hl=en" target="_blank" rel="noopener">
-              <i class="fa-solid fa-graduation-cap"></i> Google Scholar
-            </a>
-          </div>
-          <div class="contact-item">
-            <a href="https://www.bbbbchan.com" target="_blank" rel="noopener">
-              <i class="fa-solid fa-gift"></i> Blog
-            </a>
-          </div>
+      <!-- 🔧 联系 bar - 与文字宽度对齐 + 链接均匀分布 -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Tianjin, China</span>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <span>sbysbysby123@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <a href="https://github.com/BBBBChan" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> Github
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="https://scholar.google.com/citations?user=GvTWUAEAAAAJ&hl=en" target="_blank" rel="noopener">
+            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+          </a>
+        </div>
+        <div class="contact-item">
+          <a href="https://www.bbbbchan.com" target="_blank" rel="noopener">
+            <i class="fa-solid fa-gift"></i> Blog
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <!-- 实习经历区域 -->
   <div id="experience">
