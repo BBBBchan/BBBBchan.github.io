@@ -134,7 +134,7 @@ items:
     --text-muted: #718096;
     --bg-soft: #f7fafc;
     
-    /* 出版物类型颜色 */
+    /* 出版物类型颜色 - 保留用于venue标签 */
     --pub-conference: #10b981;
     --pub-arxiv: #f59e0b;
     --pub-report: #6366f1;
@@ -168,56 +168,31 @@ items:
     padding: 0 2rem;
   }
 
-  /* ========== 个人简介区域（左右对齐布局） ========== */
+  /* ========== 个人简介区域（仅文字 + 联系bar） ========== */
   .profile-section {
-    margin: 0 auto 3rem auto;
-    padding: 2rem 0;
+    margin: 0 auto 2.5rem auto;
+    padding: 1.5rem 0;
   }
 
   .profile-wrapper {
-    display: flex;
-    align-items: stretch;
-    gap: 2rem;
     background: white;
     border-radius: 14px;
-    padding: 2rem;
+    padding: 1.8rem 2rem;
     border: 1px solid var(--border-color);
     box-shadow: var(--card-shadow);
     width: 100%;
   }
 
-  .profile-image {
-    flex-shrink: 0;
-    width: 200px;
-    height: 200px;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 3px solid var(--bg-soft);
-    background: var(--bg-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
   .profile-content {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 200px;
-    text-align: left;
+    gap: 1rem;
   }
 
   .profile-content p {
     line-height: 1.8;
     color: var(--text-secondary);
-    margin: 0 0 1.2rem 0;
+    margin: 0;
     font-size: 1rem;
     text-align: left;
   }
@@ -233,7 +208,6 @@ items:
   }
 
   .contact-info {
-    margin-top: auto;
     padding: 0.8rem 1.2rem;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 8px;
@@ -242,6 +216,7 @@ items:
     gap: 0.6rem 1.2rem;
     align-items: center;
     width: fit-content;
+    margin-top: 0.5rem;
   }
 
   .contact-info i {
@@ -272,24 +247,24 @@ items:
     font-size: 0.9rem;
   }
 
-  /* ========== 章节通用样式 ========== */
+  /* ========== 章节通用样式（🔧 左对齐） ========== */
   .section-header {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 3rem 0 1.2rem 0;
+    margin: 2.5rem 0 1.2rem 0;
     position: relative;
-    padding-bottom: 0.7rem;
-    text-align: center;
+    padding-bottom: 0.6rem;
+    padding-left: 0.3rem;
+    text-align: left;
   }
 
   .section-header::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70px;
+    left: 0;
+    width: 50px;
     height: 4px;
     background: var(--primary-gradient);
     border-radius: 2px;
@@ -300,45 +275,14 @@ items:
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
     font-style: italic;
-    text-align: center;
+    text-align: left;
+    padding-left: 0.3rem;
   }
 
-  /* ========== 图例说明 ========== */
-  .pub-legend {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-    padding: 1rem 1.5rem;
-    background: var(--bg-soft);
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
-    width: 100%;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-  }
-
-  .legend-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
-
-  .legend-dot.conference { background: var(--pub-conference); }
-  .legend-dot.arxiv { background: var(--pub-arxiv); }
-  .legend-dot.report { background: var(--pub-report); }
-
-  /* ========== 实习经历样式 ========== */
+  /* ========== 实习经历样式（🔧 双栏网格） ========== */
   .experience-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-bottom: 3rem;
     width: 100%;
@@ -445,7 +389,7 @@ items:
     border: 1px solid var(--border-color);
   }
 
-  /* ========== 出版物卡片样式（单栏 + 高度对齐） ========== */
+  /* ========== 出版物卡片样式（单栏 + 图片完整显示） ========== */
   .publications-grid {
     display: flex;
     flex-direction: column;
@@ -457,7 +401,7 @@ items:
   .pub-card {
     background: white;
     border-radius: 14px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: var(--card-shadow);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
@@ -471,21 +415,21 @@ items:
     box-shadow: var(--card-shadow-hover);
   }
 
-  /* 左侧图片区域 - 固定宽度 */
+  /* 左侧图片区域 - 完整显示不裁剪 */
   .pub-image {
-    width: 260px;
+    width: 280px;
     flex-shrink: 0;
     background: var(--bg-soft);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1.2rem;
     border-right: 1px solid var(--border-color);
   }
 
   .pub-image img {
     max-width: 100%;
-    max-height: 180px;
+    max-height: 220px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -493,10 +437,10 @@ items:
   }
 
   .pub-card:hover .pub-image img {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 
-  /* 右侧文字区域 - 与图片高度协调 */
+  /* 右侧文字区域 */
   .pub-content {
     padding: 1.2rem 1.5rem;
     flex: 1;
@@ -504,7 +448,6 @@ items:
     flex-direction: column;
     justify-content: space-between;
     gap: 0.6rem;
-    min-height: 200px;
   }
 
   /* 论文标题：最多2行 */
@@ -534,7 +477,7 @@ items:
     text-overflow: ellipsis;
   }
 
-  /* 出版物名称：单行 */
+  /* 出版物名称标签 */
   .pub-venue {
     font-weight: 600;
     font-size: 0.8rem;
@@ -614,40 +557,20 @@ items:
       padding: 0 1.5rem;
     }
 
-    /* 个人简介响应式 */
-    .profile-wrapper {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    /* 实习经历响应式：小屏单栏 */
+    .experience-grid {
+      grid-template-columns: 1fr;
     }
 
-    .profile-image {
-      width: 160px;
-      height: 160px;
-    }
-
-    .profile-content {
-      min-height: auto;
-      align-items: center;
-    }
-
-    .profile-content p {
-      text-align: center;
-    }
-
-    .contact-info {
-      justify-content: center;
-      width: 100%;
-    }
-
-    /* 论文卡片响应式 */
+    /* 论文卡片响应式：小屏垂直布局 */
     .pub-card {
       flex-direction: column;
     }
 
     .pub-image {
       width: 100%;
-      height: 200px;
+      height: auto;
+      max-height: 240px;
       border-right: none;
       border-bottom: 1px solid var(--border-color);
     }
@@ -659,12 +582,6 @@ items:
     .pub-content {
       min-height: auto;
     }
-
-    .pub-legend {
-      flex-direction: column;
-      gap: 0.8rem;
-      align-items: center;
-    }
   }
 
   @media (max-width: 768px) {
@@ -674,20 +591,15 @@ items:
     }
 
     .section-header {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     .profile-wrapper {
       padding: 1.5rem;
     }
 
-    .profile-image {
-      width: 140px;
-      height: 140px;
-    }
-
     .pub-image {
-      height: 180px;
+      max-height: 200px;
     }
 
     .pub-title {
@@ -711,16 +623,12 @@ items:
     }
 
     .section-header {
-      font-size: 1.4rem;
-    }
-
-    .profile-image {
-      width: 120px;
-      height: 120px;
+      font-size: 1.3rem;
     }
 
     .pub-image {
-      height: 160px;
+      max-height: 180px;
+      padding: 1rem;
     }
 
     .pub-title {
@@ -733,8 +641,14 @@ items:
 
     .contact-info {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.5rem;
+      width: 100%;
+    }
+
+    .exp-logo {
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -760,15 +674,9 @@ items:
 <!-- 页面容器 -->
 <div class="container">
 
-  <!-- 个人简介区域（左右对齐布局） -->
+  <!-- 个人简介区域（仅文字 + 联系bar） -->
   <div class="profile-section">
     <div class="profile-wrapper">
-      <!-- 左侧照片 -->
-      <div class="profile-image">
-        <img src="{{ page.profile_picture.src | absolute_url }}" alt="{{ page.profile_picture.alt }}">
-      </div>
-      
-      <!-- 右侧文字内容 -->
       <div class="profile-content">
         <p>
           Boyuan Sun (孙博远) is currently a 3rd year Ph.D. candidate at Nankai University,
@@ -861,27 +769,11 @@ items:
     <h2 class="section-header">Selected Publications</h2>
     <p class="section-note"><i>* Equal contribution. # Corresponding author.</i></p>
     
-    <!-- 出版物类型图例 -->
-    <div class="pub-legend">
-      <div class="legend-item">
-        <span class="legend-dot conference"></span>
-        <span>Conference/Journal (正式中稿)</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-dot arxiv"></span>
-        <span>arXiv Preprint</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-dot report"></span>
-        <span>Technical Report</span>
-      </div>
-    </div>
-    
     <!-- 出版物列表（单栏垂直排列） -->
     <div class="publications-grid">
       {% for item in page.items %}
       <div class="pub-card">
-        <!-- 左侧图片 -->
+        <!-- 左侧图片 - 完整显示不裁剪 -->
         <div class="pub-image">
           <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
         </div>
