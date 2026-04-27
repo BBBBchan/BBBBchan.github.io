@@ -181,8 +181,19 @@
       width: 2.5rem;
       height: 2.5rem;
       padding: 0;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: white;
     }
-    .menu-icon::before { content: "☰"; font-size: 1.5rem; color: var(--text-primary); }
+    .menu-icon::before {
+      content: "☰";
+      font-size: 1.25rem;
+      line-height: 1;
+      color: var(--text-primary);
+      display: block;
+    }
     
     .site-nav {
       margin-left: auto;
@@ -208,9 +219,14 @@
     }
     .menu.active { display: flex; }
     .page-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       width: 100%;
-      padding: 0.6rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid var(--border-color);
+      box-sizing: border-box;
+      line-height: 1.4;
     }
     .page-link:last-child { border-bottom: none; }
 
@@ -220,11 +236,16 @@
     }
 
     .cv-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       width: 100%;
       text-align: left;
-      padding: 0.6rem 0;
+      padding: 0.7rem 0;
       border-bottom: 1px solid var(--border-color);
       border-radius: 0;
+      box-sizing: border-box;
+      line-height: 1.4;
     }
 
     .cv-menu {
@@ -245,7 +266,11 @@
     }
 
     .cv-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       padding: 0.45rem 0;
+      line-height: 1.4;
     }
   }
 
