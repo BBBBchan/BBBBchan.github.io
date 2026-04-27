@@ -168,24 +168,43 @@
 
   /* 移动端菜单 */
   @media (max-width: 768px) {
-    .menu-icon { display: block; cursor: pointer; padding: 0.5rem; }
+    .site-header .wrapper {
+      position: relative;
+      justify-content: space-between;
+    }
+
+    .menu-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+    }
     .menu-icon::before { content: "☰"; font-size: 1.5rem; color: var(--text-primary); }
     
     .site-nav {
-      margin-left: 0;  /* 🔧 移动端取消 auto margin */
-      position: absolute;
-      top: 100%;
-      right: 2rem;  /* 🔧 与容器 padding 对齐 */
+      margin-left: auto;
+      position: relative;
+      top: auto;
+      right: auto;
     }
     
     .menu {
       display: none;
       background: white;
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      right: 0;
       flex-direction: column;
       padding: 1rem 1.5rem;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: min(280px, calc(100vw - 2rem));
+      z-index: 1001;
+      box-sizing: border-box;
     }
     .menu.active { display: flex; }
     .page-link {
@@ -232,7 +251,7 @@
 
   @media (max-width: 480px) {
     .site-header .wrapper { padding: 0 1rem; }
-    .site-nav { right: 1rem; }
+    .menu { width: min(260px, calc(100vw - 1.6rem)); }
   }
 </style>
 
