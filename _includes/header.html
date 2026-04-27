@@ -185,7 +185,10 @@
       border-radius: 8px;
       box-sizing: border-box;
       overflow: hidden;
+      text-decoration: none;
+      line-height: 1;
       background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+      background-image: none;
       box-shadow: 0 2px 8px rgba(102, 126, 234, 0.12);
       transition: all 0.25s ease;
     }
@@ -211,6 +214,8 @@
       position: relative;
       top: auto;
       right: auto;
+      border: none;
+      text-align: left;
     }
     
     .menu {
@@ -237,6 +242,7 @@
       justify-content: flex-start;
       align-self: stretch;
       width: 100%;
+      margin-left: 0;
       padding: 0.7rem 0;
       border-bottom: 1px solid var(--border-color);
       box-sizing: border-box;
@@ -244,6 +250,7 @@
       text-align: left;
     }
     .page-link:last-child { border-bottom: none; }
+    .page-link:not(:first-child) { margin-left: 0; }
 
     .cv-dropdown {
       width: 100%;
