@@ -19,7 +19,14 @@
           {% assign page_link = page_link | absolute_url %}
           <a class="page-link" href="{{ page_link }}">{{ page.name }}</a>
         {% endfor %}
-        <a class="page-link" href="#experience">InternShip</a>
+        <a class="page-link" href="#experience">Internship</a>
+        <div class="cv-dropdown">
+          <button class="cv-trigger" type="button" aria-expanded="false">CV</button>
+          <div class="cv-menu">
+            <a class="cv-link" href="{{ '/assets/files/CV_boyuansun_CN.pdf' | absolute_url }}" download="CV_boyuansun_CN.pdf">中文简历</a>
+            <a class="cv-link" href="{{ '/assets/files/CV_boyuansun_EN.pdf' | absolute_url }}" download="CV_boyuansun_EN.pdf">English CV</a>
+          </div>
+        </div>
       </div>
     </nav>
   </div>
@@ -97,6 +104,68 @@
     background: var(--bg-soft);
   }
 
+  .cv-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .cv-trigger {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .cv-trigger:hover,
+  .cv-trigger:focus-visible {
+    color: #667eea;
+    background: var(--bg-soft);
+    outline: none;
+  }
+
+  .cv-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    right: 0;
+    min-width: 140px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    padding: 0.4rem;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .cv-dropdown:hover .cv-menu,
+  .cv-dropdown.active .cv-menu {
+    display: flex;
+  }
+
+  .cv-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+  }
+
+  .cv-link:hover {
+    color: #667eea;
+    background: var(--bg-soft);
+  }
+
   /* 移动端菜单 */
   @media (max-width: 768px) {
     .menu-icon { display: block; cursor: pointer; padding: 0.5rem; }
@@ -125,6 +194,40 @@
       border-bottom: 1px solid var(--border-color);
     }
     .page-link:last-child { border-bottom: none; }
+
+    .cv-dropdown {
+      width: 100%;
+      display: block;
+    }
+
+    .cv-trigger {
+      width: 100%;
+      text-align: left;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border-color);
+      border-radius: 0;
+    }
+
+    .cv-menu {
+      position: static;
+      border: none;
+      box-shadow: none;
+      padding: 0.4rem 0 0.2rem 0.8rem;
+      min-width: 0;
+      background: transparent;
+    }
+
+    .cv-dropdown:hover .cv-menu {
+      display: none;
+    }
+
+    .cv-dropdown.active .cv-menu {
+      display: flex;
+    }
+
+    .cv-link {
+      padding: 0.45rem 0;
+    }
   }
 
   @media (max-width: 480px) {
@@ -137,16 +240,44 @@
   document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.querySelector('.menu-icon');
     const menu = document.querySelector('.menu');
+    const cvTrigger = document.querySelector('.cv-trigger');
+    const cvDropdown = document.querySelector('.cv-dropdown');
     if (menuIcon && menu) {
       menuIcon.addEventListener('click', function(e) {
         e.preventDefault();
         menu.classList.toggle('active');
       });
     }
+    if (cvTrigger && cvDropdown) {
+      cvTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isActive = cvDropdown.classList.toggle('active');
+        cvTrigger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+      document.addEventListener('click', function(e) {
+        if (!cvDropdown.contains(e.target)) {
+          cvDropdown.classList.remove('active');
+          cvTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
     const pageLinks = document.querySelectorAll('.page-link');
     pageLinks.forEach(function(link) {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
+          menu.classList.remove('active');
+        }
+      });
+    });
+    const cvLinks = document.querySelectorAll('.cv-link');
+    cvLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (cvDropdown && cvTrigger) {
+          cvDropdown.classList.remove('active');
+          cvTrigger.setAttribute('aria-expanded', 'false');
+        }
+        if (menu && window.innerWidth <= 768) {
           menu.classList.remove('active');
         }
       });
