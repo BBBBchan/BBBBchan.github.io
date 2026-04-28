@@ -173,39 +173,43 @@
       justify-content: space-between;
     }
 
-    .menu-icon {
+    .site-nav .menu-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      float: none;
       width: 2.5rem;
       height: 2.5rem;
       padding: 0;
+      padding-top: 0;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       box-sizing: border-box;
       overflow: hidden;
       text-decoration: none;
       line-height: 1;
-      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
-      background-image: none;
-      box-shadow: 0 2px 8px rgba(102, 126, 234, 0.12);
+      text-align: center;
+      background: #ffffff !important;
+      background-image: none !important;
+      box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
       transition: all 0.25s ease;
     }
-    .menu-icon::before {
+    .site-nav .menu-icon::before {
       content: "☰";
       font-size: 1.1rem;
       font-weight: 700;
       line-height: 1;
-      color: #667eea;
+      color: var(--text-primary);
       display: block;
     }
 
-    .menu-icon:hover,
-    .menu-icon:focus-visible {
-      border-color: rgba(102, 126, 234, 0.35);
-      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.18);
+    .site-nav .menu-icon:hover,
+    .site-nav .menu-icon:focus-visible {
+      border-color: rgba(102, 126, 234, 0.25);
+      background: #f8fafc !important;
+      background-image: none !important;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
       outline: none;
     }
     
