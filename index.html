@@ -14,6 +14,8 @@ items:
   paper: https://arxiv.org/pdf/2605.18018
   code: https://github.com/HumanMLLM/SWIM
   hf: https://huggingface.co/papers/2605.18018
+  hf_model: https://huggingface.co/BBBBCHAN/SWIM-7B
+  dataset: https://huggingface.co/datasets/BBBBCHAN/NL-Refer
   bibtex: 
 - title: GeoAgent&#58; Learning to Geolocate Everywhere with Reinforced Geographic Characteristics
   image:
@@ -978,6 +980,18 @@ items:
             {% if item.hf and item.hf != "" %}
               <a href="{{ item.hf }}" class="pub-link" target="_blank" rel="noopener">
                 <i class="fa-solid fa-robot"></i> HF
+              </a>
+            {% endif %}
+            
+            {% if item.hf_model and item.hf_model != "" %}
+              <a href="{{ item.hf_model }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-robot"></i> HF Model
+              </a>
+            {% endif %}
+            
+            {% if item.dataset and item.dataset != "" %}
+              <a href="{{ item.dataset }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-database"></i> NL-Refer Dataset
               </a>
             {% endif %}
           </div>
