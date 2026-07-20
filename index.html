@@ -4,6 +4,19 @@ profile_picture:
   src: /assets/img/boyuansun.png
   alt: website picture
 items:
+- title: Scaling the Horizon, Not the Parameters&#58; Reaching Trillion-Parameter Performance with a 35B Agent
+  image:
+    src: assets/img/work/Agent_A1.png
+    alt: arxiv
+  author: Lei Bai, Zongsheng Cao, Yang Chen, Zhiyao Cui, Shangheng Du, Yue Fan, Shiyang Feng, Zijie Guo, Haonan He, Liang He, Xiaohan He, Shuyue Hu, Yusong Hu, Songtao Huang, Yichen Jiang, Hao Li, Xin Li, Dahua Lin, Weihao Lin, Fenghua Ling, Dongrui Liu, Zhuo Liu, Wenjie Lou, Runmin Ma, Chunjiang Mu, Haoyang Peng, Tianshuo Peng, Jinxin Shi, Luohe Shi, <b>Boyuan Sun</b>, Zelin Tan, Shengji Tang, Yan Teng, Qianyi Wang, Xiaosong Wang, Yiming Wu, Yi Xie, Xiangchao Yan, Jingqi Ye, Peng Ye, Fangchen Yu, Jiakang Yuan, Bihao Zhan, Bo Zhang, Chen Zhang, Shufei Zhang, Shuaiyu Zhang, Wenlong Zhang, Yiqun Zhang, Junpeng Zhao, Zhijie Zhong, Bowen Zhou, Yuhao Zhou
+  pubname: Technical Report
+  pubtype: report
+  paper: https://arxiv.org/abs/2606.30616
+  code: https://github.com/InternScience/Agents-A1
+  project: https://internscience.github.io/Agents-A1/
+  hf_model: https://huggingface.co/collections/InternScience/agents-a1
+  modelscope: https://modelscope.cn/models/InternScience/Agents-A1
+  bibtex:
 - title: MLEvolve&#58; A Self-Evolving Framework for Automated Machine Learning Algorithm Discovery
   image:
     src: assets/img/work/mlevolve.svg
@@ -998,7 +1011,13 @@ items:
                 <i class="fa-solid fa-robot"></i> HF Model
               </a>
             {% endif %}
-            
+
+            {% if item.modelscope and item.modelscope != "" %}
+              <a href="{{ item.modelscope }}" class="pub-link" target="_blank" rel="noopener">
+                <i class="fa-solid fa-cube"></i> ModelScope
+              </a>
+            {% endif %}
+
             {% if item.dataset and item.dataset != "" %}
               <a href="{{ item.dataset }}" class="pub-link" target="_blank" rel="noopener">
                 <i class="fa-solid fa-database"></i> NL-Refer Dataset
