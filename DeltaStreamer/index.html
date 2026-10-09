@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DeltaStreamer connects change-aware textual memory with query-driven planning and visual replay for agentic streaming video understanding.">
+  <meta name="theme-color" content="#faf9fd">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding">
+  <meta property="og:description" content="Observe the stream, remember what happened, and revisit visual evidence when memory falls short.">
+  <meta property="og:image" content="https://bbbbchan.github.io/DeltaStreamer/assets/overview.png">
+  <meta property="og:url" content="https://bbbbchan.github.io/DeltaStreamer/">
+  <title>DeltaStreamer · Agentic Streaming Video Understanding</title>
+  <link rel="icon" type="image/svg+xml" href="assets/deltastreamer-mark.svg">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="nav-brand" href="#top" aria-label="DeltaStreamer, back to top"><img src="assets/deltastreamer-mark.svg" width="30" height="30" alt=""><span>DeltaStreamer</span></a>
+      <div class="nav-links"><a href="#demo">Demo</a><a href="#method">Method</a><a href="#examples">Examples</a><a href="#citation">Citation</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero content" id="top" aria-labelledby="project-title">
+      <img class="hero-logo" src="assets/deltastreamer-logo.svg" width="440" height="88" alt="DeltaStreamer">
+      <h1 id="project-title">Towards Human-Like Agentic<br class="desktop-break"> Streaming Video Understanding</h1>
+      <div class="authors">
+        <span><a href="https://bbbbchan.github.io/">Boyuan Sun</a><sup>1</sup></span>
+        <span>Deshui Miao<sup>2</sup></span><span>Wenzhao Gao<sup>2</sup></span><span>Shaoyong Jia<sup>2</sup></span><span>Shaohui Jiao<sup>2</sup></span>
+        <span>Chi Liu<sup>3</sup></span><span>Yan Shu<sup>3</sup></span><span>Derek Li<sup>3</sup></span><span>Bryan Dai<sup>3</sup></span>
+        <span>Shengsheng Qian<sup>4</sup></span><span><a href="https://houqb.github.io/">Qibin Hou</a><sup>1</sup></span>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> VCIP, Nankai University</span>
+        <span><sup>2</sup> ByteDance Inc.</span><span><sup>3</sup> IQuest Research</span>
+        <span><sup>4</sup> Institute of Automation, Chinese Academy of Sciences</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#demo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6z"/></svg>Watch demo</a>
+        <span class="release-note">Code release forthcoming</span>
+      </div>
+      <p class="hero-statement">Observe the stream, remember what happened,<br>and revisit visual evidence when memory falls short.</p>
+    </section>
+
+    <section class="demo-section content" id="demo" aria-labelledby="demo-title">
+      <div class="section-topline"><div><p class="eyebrow">See it in action</p><h2 id="demo-title">From observation to an informed answer</h2></div>
+        <div class="language-switch" role="group" aria-label="Video language"><button type="button" data-language="en" aria-pressed="true">English</button><button type="button" data-language="zh" aria-pressed="false" lang="zh-CN">中文</button></div>
+      </div>
+      <div class="video-frame">
+        <video id="demo-video" controls playsinline preload="metadata" poster="assets/demo-en.jpg" aria-label="DeltaStreamer demonstration in English">
+          <source src="assets/demo-en.mp4" type="video/mp4">
+          <track kind="captions" src="assets/demo-en.vtt" srclang="en" label="English">
+          Your browser does not support embedded video. <a href="assets/demo-en.mp4">Download the English demo.</a>
+        </video>
+      </div>
+      <div class="video-details"><p>Watch visual changes, structured memory, and query-driven reasoning unfold across three video examples.</p><a id="video-download" href="assets/demo-en.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+      <p id="video-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="method-section content" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><p class="eyebrow">The idea</p><h2 id="method-title">Video keeps changing. Memory should keep up.</h2></div>
+      <p class="section-intro">In streaming video, questions can arrive after the relevant moment has passed. A retained description may miss the detail needed to answer. DeltaStreamer records visual changes alongside scene descriptions, organizes them into structured textual memory, and uses a query-driven planner to gather the evidence an answer needs.</p>
+      <ol class="method-steps">
+        <li><span class="step-number">01</span><h3>Observe changes</h3><p>Compare consecutive frames and record explicit visual deltas, preserving transitions that similar scene descriptions can overlook.</p></li>
+        <li><span class="step-number">02</span><h3>Organize memory</h3><p>Connect working observations, episode summaries, and pinned facts with pointers to their original visual evidence.</p></li>
+        <li><span class="step-number">03</span><h3>Plan and look back</h3><p>Identify what the question requires, search memory, and revisit historical frames when a missing visual detail matters.</p></li>
+      </ol>
+      <figure class="paper-figure">
+        <a class="figure-link" href="assets/overview.png" target="_blank" rel="noopener" aria-label="Open the DeltaStreamer framework figure at full resolution"><img src="assets/overview.png" alt="DeltaStreamer framework connecting observation of consecutive frames, explicit visual deltas, structured textual memory, query-driven planning, and visual evidence retrieval." loading="lazy" width="2400" height="1143"></a>
+        <figcaption>The DeltaStreamer framework. Observation builds memory; a question directs the search for supporting evidence.</figcaption>
+      </figure>
+    </section>
+
+    <section class="examples-section content" id="examples" aria-labelledby="examples-title">
+      <div class="section-heading"><p class="eyebrow">Qualitative examples</p><h2 id="examples-title">Remember the change. Recover the missing detail.</h2></div>
+      <p class="section-intro">Recorded changes help recover an action sequence. When textual memory lacks the letters visible in an earlier scene, planning and visual replay recover the evidence needed for an answer.</p>
+      <figure class="paper-figure">
+        <a class="figure-link" href="assets/qualitative_cases.png" target="_blank" rel="noopener" aria-label="Open the qualitative examples at full resolution"><img src="assets/qualitative_cases.png" alt="Two real paper examples. The first traces an action through visual changes stored in memory. The second follows a plan to revisit an earlier video scene and read visual details missing from memory." loading="lazy" width="2400" height="1214"></a>
+        <figcaption>Two examples from the paper illustrate complementary roles of change-aware memory and targeted visual replay.</figcaption>
+      </figure>
+    </section>
+
+    <section class="citation-section content" id="citation" aria-labelledby="citation-title">
+      <div class="section-topline"><div><p class="eyebrow">Reference</p><h2 id="citation-title">Citation</h2></div><button class="copy-button" id="copy-citation" type="button">Copy BibTeX</button></div>
+      <pre><code id="bibtex">@misc{sun2026deltastreamer,
+  title  = {DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding},
+  author = {Boyuan Sun and Deshui Miao and Wenzhao Gao and Shaoyong Jia and
+            Shaohui Jiao and Chi Liu and Yan Shu and Derek Li and Bryan Dai and
+            Shengsheng Qian and Qibin Hou},
+  year   = {2026}
+}</code></pre>
+      <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer class="site-footer content"><a class="nav-brand" href="#top"><img src="assets/deltastreamer-mark.svg" width="25" height="25" alt=""><span>DeltaStreamer</span></a><p>Observe. Remember. Investigate.</p><a href="https://bbbbchan.github.io/">Boyuan Sun <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

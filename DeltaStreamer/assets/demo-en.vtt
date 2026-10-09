@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:04.194 --> 00:00:16.168
+DeltaStreamer compares consecutive sampled frames, recording what is visible and what changed.
+
+2
+00:00:16.168 --> 00:00:28.168
+Observations form a hierarchy of working records, episodes, and pins, with links back to their source evidence.
+
+3
+00:00:28.168 --> 00:00:40.168
+A persistent plan guides retrieval and continued observation. When visual details are missing, the agent can revisit earlier frames.
+
+4
+00:00:40.168 --> 00:00:45.742
+Watch the video unfold, one frame at a time.
+
+5
+00:00:45.742 --> 00:00:51.757
+Record the change in stride and position as the character moves along the stone path.
+
+6
+00:00:51.757 --> 00:00:55.750
+Ask which road the character took as the video keeps moving.
+
+7
+00:00:55.750 --> 00:00:58.174
+The character took the right-hand path.
+
+8
+00:00:58.174 --> 00:01:05.825
+In the park, the camera reveals people and objects across the scene.
+
+9
+00:01:05.825 --> 00:01:11.811
+Retain the changing view while keeping earlier observations available.
+
+10
+00:01:11.811 --> 00:01:17.812
+Working memory retains the scene descriptions and visual changes.
+
+11
+00:01:17.812 --> 00:01:21.816
+Ask where the sandals were, while the video continues playing.
+
+12
+00:01:21.816 --> 00:01:23.900
+The sandals were on the ground.
+
+13
+00:01:23.900 --> 00:01:30.492
+The final example asks about two people seen earlier.
+
+14
+00:01:30.492 --> 00:01:36.492
+Browse the full history, from working details to episode summaries.
+
+15
+00:01:36.492 --> 00:01:40.491
+Working memory retains the scene descriptions and visual changes.
+
+16
+00:01:40.491 --> 00:01:44.493
+Episodes connect observations across time; pins keep facts and guidance available.
+
+17
+00:01:44.493 --> 00:01:48.498
+The question guides the search for their relative positions.
+
+18
+00:01:48.498 --> 00:01:49.767
+They were standing side by side.
