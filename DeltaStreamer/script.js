@@ -13,7 +13,7 @@ languageButtons.forEach((button) => {
     currentLanguage = language;
     video.pause();
     video.poster = `assets/demo-${language}.jpg`;
-    video.querySelector("source").src = `assets/demo-${language}.mp4`;
+    video.querySelector("source").src = `assets/demo-${language}.mp4?v=meanwhile`;
     const previousTrack = video.querySelector("track");
     if (previousTrack) previousTrack.remove();
     const track = document.createElement("track");
@@ -23,7 +23,7 @@ languageButtons.forEach((button) => {
     track.label = language === "zh" ? "中文" : "English";
     video.append(track);
     video.setAttribute("aria-label", `DeltaStreamer demonstration in ${language === "zh" ? "Chinese" : "English"}`);
-    videoDownload.href = `assets/demo-${language}.mp4`;
+    videoDownload.href = `assets/demo-${language}.mp4?v=meanwhile`;
     languageButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
     video.load();
     videoStatus.textContent = language === "zh" ? "Chinese video selected." : "English video selected.";

@@ -20,3 +20,5 @@ through the player's caption controls.
 To preview, serve the repository root with any static HTTP server and open
 `/DeltaStreamer/`. This page has no build step and no external JavaScript or font
 dependencies. Add the paper link and arXiv identifier when the paper is available.
+
+The three resource buttons remain placeholders until public links are supplied. OVO-Bench results reproduce all methods and group-level scores from the manuscript. Music credits and third-party media notes are in `assets/MEDIA.md`.

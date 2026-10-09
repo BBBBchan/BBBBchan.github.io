@@ -7,20 +7,20 @@
   <meta name="theme-color" content="#faf9fd">
   <meta property="og:type" content="website">
   <meta property="og:title" content="DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding">
-  <meta property="og:description" content="Observe the stream, remember what happened, and revisit visual evidence when memory falls short.">
+  <meta property="og:description" content="Agentic streaming video understanding with change-aware textual memory, query-driven planning, and visual replay.">
   <meta property="og:image" content="https://bbbbchan.github.io/DeltaStreamer/assets/overview.png">
   <meta property="og:url" content="https://bbbbchan.github.io/DeltaStreamer/">
   <title>DeltaStreamer · Agentic Streaming Video Understanding</title>
   <link rel="icon" type="image/svg+xml" href="assets/deltastreamer-mark.svg">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css?v=20261009-results-music2">
+  <script defer src="script.js?v=20261009-results-music2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav-shell" aria-label="Main navigation">
       <a class="nav-brand" href="#top" aria-label="DeltaStreamer, back to top"><img src="assets/deltastreamer-mark.svg" width="30" height="30" alt=""><span>DeltaStreamer</span></a>
-      <div class="nav-links"><a href="#demo">Demo</a><a href="#method">Method</a><a href="#examples">Examples</a><a href="#citation">Citation</a></div>
+      <div class="nav-links"><a href="#demo">Demo</a><a href="#results">Results</a><a href="#method">Method</a><a href="#examples">Examples</a><a href="#citation">Citation</a></div>
     </nav>
   </header>
 
@@ -41,9 +41,10 @@
       </div>
       <div class="hero-actions">
         <a class="button primary" href="#demo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6z"/></svg>Watch demo</a>
-        <span class="release-note">Code release forthcoming</span>
+        <button class="button secondary resource-placeholder" type="button" disabled aria-label="arXiv, link not yet available" title="Coming soon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M7.5 10h5M7.5 13h5"/></svg>arXiv</button>
+        <button class="button secondary resource-placeholder" type="button" disabled aria-label="Hugging Face, link not yet available" title="Coming soon"><svg class="hugging-face-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10.5" r="8.5" fill="#f7c95d"/><path d="M8 9v1m8-1v1m-6.5 3.2q2.5 2 5 0" fill="none" stroke="#735d3b" stroke-width="1.5" stroke-linecap="round"/><path d="m3.2 12.4 3.2 2.8-1.1-3.1c-.4-1.2 1-1.7 1.5-.6l2.6 5c.6 1.3 0 3-1.4 3.5-1.5.6-3 .2-4.1-1.1L1.7 15c-.9-1.5.2-3.4 1.5-2.6Zm17.6 0-3.2 2.8 1.1-3.1c.4-1.2-1-1.7-1.5-.6l-2.6 5c-.6 1.3 0 3 1.4 3.5 1.5.6 3 .2 4.1-1.1l2.2-3.9c.9-1.5-.2-3.4-1.5-2.6Z" fill="#f7c95d" stroke="#dca541" stroke-width=".6"/></svg>Hugging Face</button>
+        <button class="button secondary resource-placeholder" type="button" disabled aria-label="GitHub, link not yet available" title="Coming soon"><svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1.01 1.73 2.64 1.23 3.28.94.1-.73.39-1.23.71-1.51-2.49-.28-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.11-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.22 2.7.11 2.98.72.79 1.15 1.79 1.15 3.02 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>GitHub</button>
       </div>
-      <p class="hero-statement">Observe the stream, remember what happened,<br>and revisit visual evidence when memory falls short.</p>
     </section>
 
     <section class="demo-section content" id="demo" aria-labelledby="demo-title">
@@ -52,13 +53,71 @@
       </div>
       <div class="video-frame">
         <video id="demo-video" controls playsinline preload="metadata" poster="assets/demo-en.jpg" aria-label="DeltaStreamer demonstration in English">
-          <source src="assets/demo-en.mp4" type="video/mp4">
+          <source src="assets/demo-en.mp4?v=meanwhile" type="video/mp4">
           <track kind="captions" src="assets/demo-en.vtt" srclang="en" label="English">
-          Your browser does not support embedded video. <a href="assets/demo-en.mp4">Download the English demo.</a>
+          Your browser does not support embedded video. <a href="assets/demo-en.mp4?v=meanwhile">Download the English demo.</a>
         </video>
       </div>
-      <div class="video-details"><p>Watch visual changes, structured memory, and query-driven reasoning unfold across three video examples.</p><a id="video-download" href="assets/demo-en.mp4" download>Download video <span aria-hidden="true">↗</span></a></div>
+      <div class="video-details"><p>Watch visual changes, structured memory, and query-driven reasoning unfold across three video examples.</p><a id="video-download" href="assets/demo-en.mp4?v=meanwhile" download>Download video <span aria-hidden="true">↗</span></a></div>
+      <p class="music-credit">Music: <a href="https://www.scottbuckley.com.au/library/meanwhile/">“Meanwhile” by Scott Buckley</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
       <p id="video-status" class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="results-section content" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><p class="eyebrow">Quantitative results</p><h2 id="results-title">OVO-Bench performance</h2></div>
+      <p class="section-intro">Evaluation across real-time visual perception, backward tracing, and forward active responding.</p>
+      <div class="results-table-wrap" tabindex="0" role="region" aria-label="OVO-Bench results, scroll horizontally on small screens">
+        <table class="results-table" aria-describedby="results-note">
+          <caption class="sr-only">OVO-Bench group averages and overall scores, as reported in the paper.</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">Real-Time<br><span>Avg.</span></th><th scope="col">Backward<br><span>Avg.</span></th><th scope="col">RT+BT<br><span>Avg.</span></th><th scope="col">Forward<br><span>Avg.</span></th><th scope="col">Overall</th></tr></thead>
+          <tbody aria-label="Human">
+            <tr class="result-group"><th colspan="6" scope="rowgroup">Human</th></tr>
+            <tr><th scope="row">Human Agents</th><td>93.20</td><td>92.33</td><td>92.77</td><td>92.90</td><td>92.81</td></tr>
+          </tbody>
+          <tbody aria-label="Proprietary MLLMs">
+            <tr class="result-group"><th colspan="6" scope="rowgroup">Proprietary MLLMs</th></tr>
+            <tr><th scope="row">Gemini 1.5 Pro</th><td>69.32</td><td>62.54</td><td>65.93</td><td>57.15</td><td>63.00</td></tr>
+            <tr><th scope="row">Gemini 3 Flash</th><td>72.44</td><td>62.47</td><td>67.46</td><td>57.15</td><td>64.02</td></tr>
+            <tr><th scope="row">GPT-4o</th><td>64.46</td><td>60.75</td><td>62.61</td><td>53.40</td><td>59.54</td></tr>
+          </tbody>
+          <tbody aria-label="Open-Source Offline MLLMs">
+            <tr class="result-group"><th colspan="6" scope="rowgroup">Open-Source Offline MLLMs</th></tr>
+            <tr><th scope="row">Qwen2-VL-72B</th><td>61.92</td><td>56.95</td><td>59.44</td><td>49.30</td><td>56.27</td></tr>
+            <tr><th scope="row">LLaVA-Video-7B</th><td>63.52</td><td>40.40</td><td>51.96</td><td>54.82</td><td>52.91</td></tr>
+            <tr><th scope="row">LLaVA-OneVision-7B</th><td>64.02</td><td>43.71</td><td>53.87</td><td>50.50</td><td>52.74</td></tr>
+            <tr><th scope="row">Qwen2-VL-7B</th><td>55.98</td><td>46.46</td><td>51.22</td><td>48.74</td><td>50.39</td></tr>
+            <tr><th scope="row">InternVL-V2-8B</th><td>60.39</td><td>43.44</td><td>51.92</td><td>46.60</td><td>50.15</td></tr>
+            <tr><th scope="row">LongVU-7B</th><td>57.61</td><td>35.01</td><td>46.31</td><td>47.50</td><td>46.71</td></tr>
+            <tr><th scope="row">Qwen3-VL-8B</th><td>65.52</td><td>46.18</td><td>55.85</td><td>55.73</td><td>55.81</td></tr>
+          </tbody>
+          <tbody aria-label="Limited Open-Source Online MLLMs">
+            <tr class="result-group"><th colspan="6" scope="rowgroup">Limited Open-Source Online MLLMs</th></tr>
+            <tr><th scope="row">Stream-IT</th><td>71.30</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">HERMES</th><td>69.00</td><td>49.40</td><td>59.20</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">VideoLLM-online-8B</th><td>20.79</td><td>17.73</td><td>19.26</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">OASIS</th><td>78.14</td><td>57.21</td><td>67.68</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">SimpleBaseline</th><td>79.90</td><td>54.90</td><td>67.40</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">LatentStream</th><td>68.50</td><td>60.00</td><td>64.20</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">JoyAI-VL-Interaction</th><td>68.40</td><td>48.60</td><td>58.50</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">Mage-VL</th><td>79.84</td><td>48.15</td><td>64.00</td><td>—</td><td>—</td></tr>
+            <tr><th scope="row">FOLIO</th><td>82.00</td><td>69.10</td><td>75.55</td><td>—</td><td>—</td></tr>
+          </tbody>
+          <tbody aria-label="Full Open-Source Online MLLMs &amp; Video Agents">
+            <tr class="result-group"><th colspan="6" scope="rowgroup">Full Open-Source Online MLLMs &amp; Video Agents</th></tr>
+            <tr><th scope="row">Flash-VStream-7B</th><td>28.37</td><td>27.38</td><td>27.88</td><td>45.09</td><td>33.61</td></tr>
+            <tr><th scope="row">Dispider</th><td>54.55</td><td>36.06</td><td>45.31</td><td>34.72</td><td>41.78</td></tr>
+            <tr><th scope="row">ReKV</th><td>62.50</td><td>45.30</td><td>53.90</td><td>48.00</td><td>52.00</td></tr>
+            <tr><th scope="row">StreamForest-7B</th><td>61.20</td><td>52.02</td><td>56.61</td><td>53.49</td><td>55.57</td></tr>
+            <tr><th scope="row">Streamo</th><td>67.40</td><td>49.20</td><td>58.30</td><td><span class="second-best">57.00</span></td><td>57.90</td></tr>
+            <tr><th scope="row">VST</th><td>67.20</td><td>56.70</td><td>61.95</td><td>54.00</td><td>59.30</td></tr>
+            <tr><th scope="row">ViSpeak</th><td>66.28</td><td>57.52</td><td>61.90</td><td>54.25</td><td><span class="second-best">61.08</span></td></tr>
+            <tr><th scope="row">StreamAgent</th><td>61.30</td><td>41.70</td><td>51.50</td><td>45.40</td><td>49.40</td></tr>
+            <tr><th scope="row">EventMemAgent</th><td><span class="second-best">68.29</span></td><td><span class="second-best">58.03</span></td><td><span class="second-best">63.16</span></td><td>55.92</td><td>60.75</td></tr>
+            <tr class="ours"><th scope="row">DeltaStreamer</th><td><strong>72.23</strong></td><td><strong>67.72</strong></td><td><strong>69.98</strong></td><td><strong>58.25</strong></td><td><strong>66.07</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="results-note" id="results-note">RT+BT averages the Real-Time and Backward groups. — denotes an unreported result.</p>
     </section>
 
     <section class="method-section content" id="method" aria-labelledby="method-title">
