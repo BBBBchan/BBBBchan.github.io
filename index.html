@@ -4,6 +4,37 @@ profile_picture:
   src: /assets/img/boyuansun.png
   alt: website picture
 items:
+- title: SAIL&#58; Scientific Agentic Intelligence via a Science-Aware Loop
+  image:
+    src: assets/img/work/sail-overview.png
+    alt: SAIL scientific research model overview
+  author: 'SAIL Model Team: <b>Boyuan Sun</b>, Bryan Dai, Che Liu, Chi Liu, Derek Li, Hongming Piao, Mengzhuo Chen, Xidong Wang, Yan Shu, Yinda Chen, Ziyang Zeng'
+  pubname: Technical Report 2026
+  pubtype: report
+  description: A scientific agent model that uses failure diagnosis to guide training-task construction for literature research, scientific coding, and multi-step research workflows.
+  paper: https://arxiv.org/abs/2610.11451
+  hf: https://huggingface.co/papers/2610.11451
+- title: IQuest-Q1&#58; Advancing Foundation Capabilities for Agentic CLI Systems
+  image:
+    src: assets/img/work/iquest-q1-training.png
+    alt: IQuest-Q1 training pipeline
+  author: IQuest Team
+  pubname: Open-Weight Model 2026
+  pubtype: report
+  description: A 320B mixture-of-experts model with 15B active parameters for agentic coding, reasoning, and multi-step tool use.
+  project: https://iquestlab.github.io/
+  code: https://github.com/IQuestLab/IQuest-Q1
+  hf_model: https://huggingface.co/IQuestLab/IQuest-Q1
+- title: DeltaStreamer&#58; Towards Human-Like Agentic Streaming Video Understanding
+  image:
+    src: DeltaStreamer/assets/overview.png
+    alt: DeltaStreamer observation, memory, planning, and replay framework
+  author: <b>Boyuan Sun</b>, Deshui Miao, Wenzhao Gao, Shaoyong Jia, Shaohui Jiao, Chi Liu, Yan Shu, Derek Li, Bryan Dai, Shengsheng Qian, Qibin Hou
+  pubname: Preprint 2026
+  pubtype: arxiv
+  description: An agentic streaming video framework that records visual changes in structured memory and uses query-driven planning and targeted replay to recover relevant evidence.
+  project: https://bbbbchan.github.io/DeltaStreamer/
+  demo: https://bbbbchan.github.io/DeltaStreamer/#demo
 - title: Scaling the Horizon, Not the Parameters&#58; Reaching Trillion-Parameter Performance with a 35B Agent
   image:
     src: assets/img/work/Agent_A1.png
@@ -582,6 +613,13 @@ items:
     border: 1px solid rgba(245, 158, 11, 0.3);
   }
 
+  .pub-description {
+    margin: 8px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .pub-venue.report {
     color: var(--pub-report);
     background: rgba(99, 102, 241, 0.12);
@@ -990,6 +1028,9 @@ items:
             <h3 class="pub-title">{{ item.title }}</h3>
             <p class="pub-authors">{{ item.author }}</p>
             <p class="pub-venue {{ item.pubtype }}">{{ item.pubname }}</p>
+            {% if item.description %}
+            <p class="pub-description">{{ item.description }}</p>
+            {% endif %}
           </div>
           
           <div class="pub-links">
