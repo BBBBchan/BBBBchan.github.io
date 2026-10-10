@@ -6,8 +6,9 @@ profile_picture:
 items:
 - title: SAIL&#58; Scientific Agentic Intelligence via a Science-Aware Loop
   image:
-    src: assets/img/work/sail-overview.png
-    alt: SAIL scientific research model overview
+    src: assets/img/work/sail-logo.png
+    alt: SAIL logo
+    logo: true
   author: 'SAIL Model Team: <b>Boyuan Sun</b>, Bryan Dai, Che Liu, Chi Liu, Derek Li, Hongming Piao, Mengzhuo Chen, Xidong Wang, Yan Shu, Yinda Chen, Ziyang Zeng'
   pubname: Technical Report 2026
   pubtype: report
@@ -16,8 +17,9 @@ items:
   hf: https://huggingface.co/papers/2610.11451
 - title: IQuest-Q1&#58; Advancing Foundation Capabilities for Agentic CLI Systems
   image:
-    src: assets/img/work/iquest-q1-training.png
-    alt: IQuest-Q1 training pipeline
+    src: assets/img/work/iquest-logo.jpg
+    alt: IQuest Research logo
+    logo: true
   author: IQuest Team
   pubname: Open-Weight Model 2026
   pubtype: report
@@ -27,8 +29,9 @@ items:
   hf_model: https://huggingface.co/IQuestLab/IQuest-Q1
 - title: DeltaStreamer&#58; Towards Human-Like Agentic Streaming Video Understanding
   image:
-    src: DeltaStreamer/assets/overview.png
-    alt: DeltaStreamer observation, memory, planning, and replay framework
+    src: assets/img/work/deltastreamer-logo.svg
+    alt: DeltaStreamer logo
+    logo: true
   author: <b>Boyuan Sun</b>, Deshui Miao, Wenzhao Gao, Shaoyong Jia, Shaohui Jiao, Chi Liu, Yan Shu, Derek Li, Bryan Dai, Shengsheng Qian, Qibin Hou
   pubname: Preprint 2026
   pubtype: arxiv
@@ -542,6 +545,16 @@ items:
     display: block;
   }
 
+  .pub-image-logo {
+    background: #fff;
+  }
+
+  .pub-image-logo img {
+    width: 100%;
+    max-width: 240px;
+    max-height: 140px;
+  }
+
   .pub-card:hover .pub-image img {
     transform: scale(1.02);
   }
@@ -1020,7 +1033,7 @@ items:
     <div class="publications-grid">
       {% for item in page.items %}
       <div class="pub-card">
-        <div class="pub-image">
+        <div class="pub-image{% if item.image.logo %} pub-image-logo{% endif %}">
           <img src="{{ item.image.src | absolute_url }}" alt="{{ item.image.alt }}">
         </div>
         <div class="pub-content">
