@@ -14,7 +14,7 @@ Video delivery files:
 - `assets/demo-en.jpg` and `assets/demo-zh.jpg`
 
 Language buttons switch the video, poster, captions and download link together.
-Video playback uses native controls and does not autoplay. Captions are selectable
+After the short opening, the videos show the three browser examples before the method animation. Video playback uses native controls and does not autoplay. Captions are selectable
 through the player's caption controls.
 
 To preview, serve the repository root with any static HTTP server and open
