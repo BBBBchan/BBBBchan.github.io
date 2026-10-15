@@ -41,8 +41,8 @@
       </div>
       <div class="hero-actions">
         <a class="button primary" href="#demo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 9 6-9 6z"/></svg>Watch demo</a>
-        <button class="button secondary resource-placeholder" type="button" disabled aria-label="arXiv, link not yet available" title="Coming soon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M7.5 10h5M7.5 13h5"/></svg>arXiv</button>
-        <button class="button secondary resource-placeholder" type="button" disabled aria-label="Hugging Face, link not yet available" title="Coming soon"><svg class="hugging-face-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10.5" r="8.5" fill="#f7c95d"/><path d="M8 9v1m8-1v1m-6.5 3.2q2.5 2 5 0" fill="none" stroke="#735d3b" stroke-width="1.5" stroke-linecap="round"/><path d="m3.2 12.4 3.2 2.8-1.1-3.1c-.4-1.2 1-1.7 1.5-.6l2.6 5c.6 1.3 0 3-1.4 3.5-1.5.6-3 .2-4.1-1.1L1.7 15c-.9-1.5.2-3.4 1.5-2.6Zm17.6 0-3.2 2.8 1.1-3.1c.4-1.2-1-1.7-1.5-.6l-2.6 5c-.6 1.3 0 3 1.4 3.5 1.5.6 3 .2 4.1-1.1l2.2-3.9c.9-1.5-.2-3.4-1.5-2.6Z" fill="#f7c95d" stroke="#dca541" stroke-width=".6"/></svg>Hugging Face</button>
+        <a class="button secondary" href="https://arxiv.org/pdf/2610.19849" target="_blank" rel="noopener" aria-label="Read the DeltaStreamer paper on arXiv"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 2.5h7l3 3v12H5zM12 2.5v4h3M7.5 10h5M7.5 13h5"/></svg>arXiv</a>
+        <a class="button secondary" href="https://huggingface.co/papers/2610.19849" target="_blank" rel="noopener" aria-label="View the DeltaStreamer paper on Hugging Face"><svg class="hugging-face-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10.5" r="8.5" fill="#f7c95d"/><path d="M8 9v1m8-1v1m-6.5 3.2q2.5 2 5 0" fill="none" stroke="#735d3b" stroke-width="1.5" stroke-linecap="round"/><path d="m3.2 12.4 3.2 2.8-1.1-3.1c-.4-1.2 1-1.7 1.5-.6l2.6 5c.6 1.3 0 3-1.4 3.5-1.5.6-3 .2-4.1-1.1L1.7 15c-.9-1.5.2-3.4 1.5-2.6Zm17.6 0-3.2 2.8 1.1-3.1c.4-1.2-1-1.7-1.5-.6l-2.6 5c-.6 1.3 0 3 1.4 3.5 1.5.6 3 .2 4.1-1.1l2.2-3.9c.9-1.5-.2-3.4-1.5-2.6Z" fill="#f7c95d" stroke="#dca541" stroke-width=".6"/></svg>Hugging Face</a>
         <a class="button secondary" href="https://github.com/BBBBchan/DeltaStreamer"><svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.32-3.78-1.32-.51-1.3-1.24-1.65-1.24-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1.01 1.73 2.64 1.23 3.28.94.1-.73.39-1.23.71-1.51-2.49-.28-5.11-1.25-5.11-5.54 0-1.23.44-2.23 1.15-3.02-.11-.28-.5-1.43.11-2.98 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.22 2.7.11 2.98.72.79 1.15 1.79 1.15 3.02 0 4.3-2.62 5.26-5.12 5.54.4.35.76 1.03.76 2.08v3.08c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg>GitHub</a>
         <a class="button secondary" href="https://github.com/BBBBchan/AI-Tongdan"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="M2.5 7.5h15M6 5.5h.01M8.5 5.5h.01m-.5 5 4 1.5-4 1.5z"/></svg>Application</a>
       </div>
@@ -146,12 +146,14 @@
 
     <section class="citation-section content" id="citation" aria-labelledby="citation-title">
       <div class="section-topline"><div><p class="eyebrow">Reference</p><h2 id="citation-title">Citation</h2></div><button class="copy-button" id="copy-citation" type="button">Copy BibTeX</button></div>
-      <pre><code id="bibtex">@misc{sun2026deltastreamer,
+      <pre><code id="bibtex">@article{sun2026deltastreamer,
   title  = {DeltaStreamer: Towards Human-Like Agentic Streaming Video Understanding},
-  author = {Boyuan Sun and Deshui Miao and Wenzhao Gao and Shaoyong Jia and
-            Shaohui Jiao and Chi Liu and Yan Shu and Derek Li and Bryan Dai and
-            Shengsheng Qian and Qibin Hou},
-  year   = {2026}
+  author = {Sun, Boyuan and Miao, Deshui and Gao, Wenzhao and Jia, Shaoyong and
+            Jiao, Shaohui and Liu, Chi and Shu, Yan and Li, Derek and Dai, Bryan and
+            Qian, Shengsheng and Hou, Qibin},
+  journal = {arXiv preprint arXiv:2610.19849},
+  year   = {2026},
+  url    = {https://arxiv.org/abs/2610.19849}
 }</code></pre>
       <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
     </section>
