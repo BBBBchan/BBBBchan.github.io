@@ -13,3 +13,10 @@ Project figures and demo videos accompany DeltaStreamer. Example footage is from
 The soundtrack remains under CC BY 4.0. This site distributes it synchronized with the demo videos. Please retain this credit when sharing or re-uploading the videos; for YouTube, include it in the video description.
 
 Logo and project figures are from the DeltaStreamer authors. Local fonts retain their separate SIL Open Font License in `fonts/Manrope-OFL.txt`.
+
+## Platform icons
+
+Bilibili and Xiaohongshu glyphs are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Their paths are used in the project page resource buttons, with brand colors and a cropped view box for the Xiaohongshu wordmark.
+
+- Bilibili: https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bilibili.svg
+- Xiaohongshu: https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/xiaohongshu.svg

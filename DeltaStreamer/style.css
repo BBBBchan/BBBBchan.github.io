@@ -32,3 +32,6 @@
 .results-note{margin-top:12px;font-size:11px;color:var(--muted)}
 @media(max-width:760px){.results-section{padding-top:53px}.results-table{font-size:12px;min-width:650px}.results-table th,.results-table td{padding:8px 12px}.results-table th:first-child{padding-left:15px}.results-table th[scope=row],.results-table thead th:first-child{position:sticky;left:0;z-index:1;box-shadow:2px 0 5px #36235408}.results-table .ours th[scope=row]{box-shadow:inset 3px 0 var(--purple),2px 0 5px #36235408}.results-table .result-group th{font-size:10px}.results-section .section-intro{font-size:13px}.results-note{font-size:10px}}
 .music-credit{margin-top:8px;font-size:10px;line-height:1.7;color:var(--muted)}.music-credit a{text-decoration:underline;text-decoration-color:#b7aec8;text-underline-offset:3px}.music-credit a:hover{color:var(--purple-dark)}
+
+/* Brand glyphs from Simple Icons; Xiaohongshu uses its Chinese wordmark. */
+.button .brand-icon{fill:currentColor;stroke:none;flex-shrink:0}.button .bilibili-icon{color:#00a1d6}.button .xiaohongshu-icon{width:32px;color:#ff2442}
