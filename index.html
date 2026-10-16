@@ -35,9 +35,14 @@ items:
   author: <b>Boyuan Sun</b>, Deshui Miao, Wenzhao Gao, Shaoyong Jia, Shaohui Jiao, Chi Liu, Yan Shu, Derek Li, Bryan Dai, Shengsheng Qian, Qibin Hou
   pubname: Preprint 2026
   pubtype: arxiv
-  description: An agentic streaming video framework that records visual changes in structured memory and uses query-driven planning and targeted replay to recover relevant evidence.
+  description: Change-aware memory and query-driven visual replay for streaming video understanding. Powers AI-Tongdan, a live-stream companion combining video, audio, and chat for continuous observation and multi-turn Q&A.
+  paper: https://arxiv.org/abs/2610.19849
+  code: https://github.com/BBBBchan/DeltaStreamer
   project: https://bbbbchan.github.io/DeltaStreamer/
   demo: https://bbbbchan.github.io/DeltaStreamer/#demo
+  hf: https://huggingface.co/papers/2610.19849
+  application: https://github.com/BBBBchan/AI-Tongdan
+  application_name: AI-Tongdan
 - title: Scaling the Horizon, Not the Parameters&#58; Reaching Trillion-Parameter Performance with a 35B Agent
   image:
     src: assets/img/work/Agent_A1.png
@@ -1092,6 +1097,12 @@ items:
               </a>
             {% endif %}
             
+            {% if item.application and item.application != "" %}
+              <a href="{{ item.application }}" class="pub-link" target="_blank" rel="noopener" aria-label="Application: {{ item.application_name | escape }}">
+                <i class="fa-solid fa-desktop"></i> Application
+              </a>
+            {% endif %}
+
             {% if item.hf_model and item.hf_model != "" %}
               <a href="{{ item.hf_model }}" class="pub-link" target="_blank" rel="noopener">
                 <i class="fa-solid fa-robot"></i> HF Model
